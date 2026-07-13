@@ -149,16 +149,16 @@ export default async function Home() {
             <time dateTime={ledger.generatedAt}>{new Date(ledger.generatedAt).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" })} UTC</time>
           </div>
         </div>
-        <div className="pr-table" role="table" aria-label="OpenClaw pull request ledger">
-          <div className="pr-row pr-head" role="row">
-            <span role="columnheader">PR</span><span role="columnheader">State</span><span role="columnheader">Evidence / current boundary</span><span role="columnheader">Head</span>
+        <div className="pr-table">
+          <div className="pr-row pr-head" aria-hidden="true">
+            <span>PR</span><span>State</span><span>Evidence / current boundary</span><span>Head</span>
           </div>
           {ledger.pullRequests.map((pr) => (
-            <a className="pr-row" href={pr.url} key={pr.number} role="row">
-              <span className="pr-title" role="cell"><strong>#{pr.number}</strong>{pr.title}</span>
-              <span role="cell"><StateMark state={pr.state} />{pr.ratingLabel && <small>{pr.ratingLabel}</small>}</span>
-              <span className="pr-work" role="cell">{publicBoundary(pr)}</span>
-              <code role="cell">{pr.headSha.slice(0, 12)}</code>
+            <a className="pr-row" href={pr.url} key={pr.number}>
+              <span className="pr-title"><strong>#{pr.number}</strong>{pr.title}</span>
+              <span><StateMark state={pr.state} />{pr.ratingLabel && <small>{pr.ratingLabel}</small>}</span>
+              <span className="pr-work">{publicBoundary(pr)}</span>
+              <code>{pr.headSha.slice(0, 12)}</code>
             </a>
           ))}
         </div>

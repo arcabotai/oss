@@ -1,0 +1,22 @@
+# Arca OSS
+
+Arca OSS is the public engineering index for Arca Systems. It documents open-source repositories Arca maintains, external open-source projects Arca supports, and upstream contribution records.
+
+## Canonical sources
+
+- [Arca OSS website](https://oss.arcabot.ai)
+- [Source repository](https://github.com/arcabotai/oss)
+- [Machine-readable index](https://oss.arcabot.ai/oss.json)
+- [Arca on GitHub](https://github.com/arcabotai)
+- [OpenClaw contribution ledger](https://github.com/arcabotai/arca-openclaw-contributions)
+- [Live OpenClaw PR data](https://raw.githubusercontent.com/arcabotai/arca-openclaw-contributions/main/data/openclaw-prs.json)
+
+## Maintained projects
+
+- [A3Stack](https://github.com/arcabotai/a3stack) — MIT-licensed agent infrastructure SDK.
+- [Hypersnap Toolkit](https://github.com/arcabotai/hypersnap) — MIT-licensed node operations toolkit.
+- [OpenClaw TUI Field Fix](https://github.com/arcabotai/openclaw-tui-deliver-stuck-spinner) — MIT-licensed diagnostic artifact.
+
+## Evidence policy
+
+Public source is not automatically open source; a project is listed as OSS only with an explicit license. Authored, open, closed, superseded, and merged pull requests remain distinct. Support does not imply upstream affiliation.
