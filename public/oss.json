@@ -23,6 +23,13 @@
       "license": "MIT"
     },
     {
+      "name": "Ardea Knowledge Steward",
+      "repository": "https://github.com/arcabotai/ardea-knowledge-steward",
+      "role": "steward",
+      "license": "Apache-2.0",
+      "status": "public prototype"
+    },
+    {
       "name": "OpenClaw Contributions",
       "repository": "https://github.com/arcabotai/arca-openclaw-contributions",
       "role": "publisher",
@@ -46,8 +53,15 @@
     {
       "name": "Hypersnap / Snapchain",
       "upstream": "https://github.com/farcasterorg/hypersnap",
-      "role": "ecosystem tooling maintainer",
+      "role": "tooling maintainer and upstream reviewer",
       "evidence": "https://github.com/arcabotai/hypersnap",
+      "reviews": [
+        {
+          "url": "https://github.com/farcasterorg/hypersnap/pull/10#pullrequestreview-4177281968",
+          "state": "CHANGES_REQUESTED",
+          "upstreamPullRequestMerged": true
+        }
+      ],
       "affiliated": false
     }
   ],

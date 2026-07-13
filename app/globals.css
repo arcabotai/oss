@@ -158,9 +158,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-
 .support-record h3 a:hover { color: var(--teal); }
 .record-role { color: var(--bronze); text-transform: uppercase; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
 .support-record > p:not(.record-role) { color: #c2c9c6; }
-.record-proof { margin-top: auto; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
+.record-proof { margin-top: auto; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
 .record-proof span { color: var(--muted); }
 .record-proof a { color: var(--teal); }
+.record-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 14px; text-align: right; }
 .support-record small { color: var(--muted); margin-top: 14px; }
 .support-policy { background: var(--paper); color: var(--ink); }
 .support-policy p { color: #303936 !important; }

@@ -2,12 +2,27 @@ export type OwnedProject = {
   name: string;
   repository: string;
   url: string;
-  role: "maintainer" | "publisher";
+  role: "maintainer" | "publisher" | "steward";
   kind: string;
   license: string;
   status: string;
   description: string;
   proof: string;
+};
+
+export type SupportProgram = {
+  name: string;
+  url: string;
+  role: string;
+  scope: string;
+  status: string;
+  evidence: string;
+  evidenceLabel: string;
+  review?: {
+    label: string;
+    url: string;
+  };
+  note: string;
 };
 
 export type PullRequestRecord = {
@@ -58,6 +73,18 @@ export const ownedProjects: OwnedProject[] = [
     proof: "The CLI, installer, safety model, tests, and upstream references are public.",
   },
   {
+    name: "Ardea Knowledge Steward",
+    repository: "arcabotai/ardea-knowledge-steward",
+    url: "https://github.com/arcabotai/ardea-knowledge-steward",
+    role: "steward",
+    kind: "provenance-aware Q&A",
+    license: "Apache-2.0",
+    status: "public prototype",
+    description:
+      "A source-labelled knowledge agent and bundle for Hypersnap, Snapchain, and Farcaster-fork operators.",
+    proof: "The prototype, source corpus, roadmap, and unfinished bot-hardening boundaries are public.",
+  },
+  {
     name: "OpenClaw Contributions",
     repository: "arcabotai/arca-openclaw-contributions",
     url: "https://github.com/arcabotai/arca-openclaw-contributions",
@@ -83,7 +110,7 @@ export const ownedProjects: OwnedProject[] = [
   },
 ];
 
-export const supportPrograms = [
+export const supportPrograms: SupportProgram[] = [
   {
     name: "OpenClaw",
     url: "https://github.com/openclaw/openclaw",
@@ -91,18 +118,24 @@ export const supportPrograms = [
     scope: "bug reports · source diagnosis · runtime proof · pull requests",
     status: "active",
     evidence: "https://github.com/arcabotai/arca-openclaw-contributions",
+    evidenceLabel: "contribution ledger",
     note: "Arca is an independent contributor, not an OpenClaw maintainer or affiliate.",
   },
   {
     name: "Hypersnap / Snapchain",
     url: "https://github.com/farcasterorg/hypersnap",
-    role: "ecosystem tooling maintainer",
-    scope: "operator CLI · diagnostics · safe repair · support reports",
+    role: "tooling maintainer · upstream reviewer",
+    scope: "operator CLI · diagnostics · safe repair · requested-changes review",
     status: "active",
     evidence: "https://github.com/arcabotai/hypersnap",
-    note: "Independent tooling around the upstream node stack; upstream ownership stays upstream.",
+    evidenceLabel: "operator toolkit",
+    review: {
+      label: "review #10",
+      url: "https://github.com/farcasterorg/hypersnap/pull/10#pullrequestreview-4177281968",
+    },
+    note: "Arca maintains independent tooling and submitted a public security/correctness review; upstream ownership stays upstream.",
   },
-] as const;
+];
 
 const fallbackLedger: OpenClawLedger = {
   generatedAt: "2026-07-13T15:14:25+00:00",

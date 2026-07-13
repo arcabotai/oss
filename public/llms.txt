@@ -11,11 +11,17 @@ Arca OSS is the public engineering index for Arca Systems. It documents open-sou
 - [OpenClaw contribution ledger](https://github.com/arcabotai/arca-openclaw-contributions)
 - [Live OpenClaw PR data](https://raw.githubusercontent.com/arcabotai/arca-openclaw-contributions/main/data/openclaw-prs.json)
 
-## Maintained projects
+## Maintained and published projects
 
 - [A3Stack](https://github.com/arcabotai/a3stack) — MIT-licensed agent infrastructure SDK.
 - [Hypersnap Toolkit](https://github.com/arcabotai/hypersnap) — MIT-licensed node operations toolkit.
+- [Ardea Knowledge Steward](https://github.com/arcabotai/ardea-knowledge-steward) — Apache-2.0 provenance-aware Q&A prototype.
+- [OpenClaw Contributions](https://github.com/arcabotai/arca-openclaw-contributions) — MIT-licensed contribution ledger.
 - [OpenClaw TUI Field Fix](https://github.com/arcabotai/openclaw-tui-deliver-stuck-spinner) — MIT-licensed diagnostic artifact.
+
+## Upstream review evidence
+
+- [Hypersnap PR #10 review](https://github.com/farcasterorg/hypersnap/pull/10#pullrequestreview-4177281968) — Arca submitted a public `CHANGES_REQUESTED` security and correctness review on an upstream PR that was later merged.
 
 ## Evidence policy
 

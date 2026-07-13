@@ -122,7 +122,13 @@ export default async function Home() {
               <h3><a href={program.url}>{program.name} <Arrow /></a></h3>
               <p className="record-role">{program.role}</p>
               <p>{program.scope}</p>
-              <div className="record-proof"><span>Evidence</span><a href={program.evidence}>public record <Arrow /></a></div>
+              <div className="record-proof">
+                <span>Evidence</span>
+                <div className="record-links">
+                  <a href={program.evidence}>{program.evidenceLabel} <Arrow /></a>
+                  {program.review && <a href={program.review.url}>{program.review.label} <Arrow /></a>}
+                </div>
+              </div>
               <small>{program.note}</small>
             </article>
           ))}
