@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a0d0d"/>
+  <path d="M0 80H1200M0 550H1200M80 0V630M1120 0V630" stroke="#27302d"/>
+  <circle cx="934" cy="315" r="178" fill="none" stroke="#2f766d"/>
+  <path d="M934 315L1068 190M934 315L1092 420M934 315L782 178M934 315L760 440" stroke="#2f766d"/>
+  <circle cx="934" cy="315" r="38" fill="#0f2421" stroke="#62d2bd"/>
+  <circle cx="1068" cy="190" r="10" fill="#d59b58"/><circle cx="1092" cy="420" r="10" fill="#62d2bd"/><circle cx="782" cy="178" r="10" fill="#d59b58"/><circle cx="760" cy="440" r="10" fill="#62d2bd"/>
+  <text x="82" y="110" fill="#62d2bd" font-family="monospace" font-size="22">PUBLIC ENGINEERING INDEX / 001</text>
+  <text x="82" y="248" fill="#f0eee4" font-family="Arial, sans-serif" font-size="88" font-weight="700">Software should</text>
+  <text x="82" y="346" fill="#f0eee4" font-family="Arial, sans-serif" font-size="88" font-weight="700">leave receipts.</text>
+  <text x="82" y="430" fill="#a7b0ac" font-family="Arial, sans-serif" font-size="27">Open-source projects, upstream work, and public proof.</text>
+  <text x="82" y="544" fill="#d59b58" font-family="monospace" font-size="25">oss.arcabot.ai</text>
+</svg>
