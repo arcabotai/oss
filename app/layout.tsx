@@ -6,19 +6,23 @@ export const metadata: Metadata = {
   title: "Arca OSS — public software, upstream work, receipts",
   description:
     "The public engineering index for Arca: open-source projects we maintain, ecosystems we support, and upstream work with verifiable receipts.",
+  alternates: {
+    canonical: "https://oss.arcabot.ai",
+    types: { "application/json": "https://oss.arcabot.ai/oss.json" },
+  },
   openGraph: {
     title: "Arca OSS",
     description: "Public software. Upstream work. Receipts attached.",
     url: "https://oss.arcabot.ai",
     siteName: "Arca OSS",
     type: "website",
-    images: [{ url: "/og.svg", width: 1200, height: 630, alt: "Arca OSS public engineering ledger" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Arca OSS public engineering ledger" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Arca OSS",
     description: "Public software. Upstream work. Receipts attached.",
-    images: ["/og.svg"],
+    images: ["/og.png"],
   },
 };
 

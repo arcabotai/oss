@@ -27,6 +27,7 @@ Quality gates:
 npm run typecheck
 npm run lint
 npm run build
+npm run check:claims
 ```
 
 ## Evidence policy

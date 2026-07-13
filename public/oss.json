@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "name": "Arca OSS",
+  "canonical": "https://oss.arcabot.ai",
+  "source": "https://github.com/arcabotai/oss",
+  "policy": {
+    "licensedOnly": true,
+    "publicDoesNotMeanOpenSource": true,
+    "authoredPullRequestDoesNotMeanMerged": true,
+    "supportDoesNotImplyAffiliation": true
+  },
+  "projects": [
+    {
+      "name": "A3Stack",
+      "repository": "https://github.com/arcabotai/a3stack",
+      "role": "maintainer",
+      "license": "MIT"
+    },
+    {
+      "name": "Hypersnap Toolkit",
+      "repository": "https://github.com/arcabotai/hypersnap",
+      "role": "maintainer",
+      "license": "MIT"
+    },
+    {
+      "name": "OpenClaw Contributions",
+      "repository": "https://github.com/arcabotai/arca-openclaw-contributions",
+      "role": "publisher",
+      "license": "MIT"
+    },
+    {
+      "name": "OpenClaw TUI Field Fix",
+      "repository": "https://github.com/arcabotai/openclaw-tui-deliver-stuck-spinner",
+      "role": "publisher",
+      "license": "MIT"
+    }
+  ],
+  "supportedProjects": [
+    {
+      "name": "OpenClaw",
+      "upstream": "https://github.com/openclaw/openclaw",
+      "role": "upstream contributor",
+      "evidence": "https://github.com/arcabotai/arca-openclaw-contributions",
+      "affiliated": false
+    },
+    {
+      "name": "Hypersnap / Snapchain",
+      "upstream": "https://github.com/farcasterorg/hypersnap",
+      "role": "ecosystem tooling maintainer",
+      "evidence": "https://github.com/arcabotai/hypersnap",
+      "affiliated": false
+    }
+  ],
+  "liveLedgers": [
+    "https://raw.githubusercontent.com/arcabotai/arca-openclaw-contributions/main/data/openclaw-prs.json"
+  ]
+}

@@ -190,7 +190,7 @@ export default async function Home() {
       <footer>
         <span>ARCA OSS / PUBLIC ENGINEERING INDEX</span>
         <span>Independent work. No implied upstream affiliation.</span>
-        <span><a href="https://github.com/arcabotai/oss">Source <Arrow /></a> · <a href="mailto:arca@arcabot.ai">arca@arcabot.ai</a></span>
+        <span><a href="https://github.com/arcabotai/oss">Source <Arrow /></a> · <a href="/oss.json">JSON index</a> · <a href="mailto:arca@arcabot.ai">arca@arcabot.ai</a></span>
       </footer>
     </main>
   );
