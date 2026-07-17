@@ -232,7 +232,7 @@ export const supportPrograms: SupportProgram[] = [
         url: "https://github.com/openclaw/clickclack/pull/78",
       },
     ],
-    note: "ClickClack maintainers extracted two generic capabilities from Arca's closed connector proposal. Both merged implementation commits retain Cad's co-author credit, and both changelog entries thank @arcabotai. Arca is not a ClickClack maintainer or affiliate.",
+    note: "ClickClack maintainers extracted two generic capabilities from Arca's closed connector proposal. Each merged implementation commit retains Cad's co-author credit, and its exact-commit changelog credits @arcabotai. Arca is not a ClickClack maintainer or affiliate.",
   },
 ];
 

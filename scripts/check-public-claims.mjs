@@ -104,11 +104,13 @@ for (const expected of clickClackMergeCredits) {
   );
 }
 
-const clickClackChangelog = await githubText("repos/openclaw/clickclack/contents/CHANGELOG.md?ref=main");
 for (const expected of clickClackMergeCredits) {
+  const clickClackChangelog = await githubText(
+    `repos/openclaw/clickclack/contents/CHANGELOG.md?ref=${expected.implementationCommit}`,
+  );
   assert.ok(
     clickClackChangelog.includes(expected.changelogText),
-    `ClickClack PR #${expected.number}: changelog credit missing`,
+    `ClickClack PR #${expected.number}: exact-commit changelog credit missing`,
   );
 }
 
