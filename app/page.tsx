@@ -1,4 +1,48 @@
-import { clickClackMergeCredits, getOpenClawLedger, ownedProjects, supportPrograms } from "@/lib/data";
+import { clickClackMergeCredits, getActivityFeed, getOpenClawLedger, ownedProjects, supportPrograms } from "@/lib/data";
+
+const MOVEMENT_LIMIT = 8;
+
+const KIND_LABELS: Record<string, string> = {
+  upstream_pr_state: "pull request",
+  upstream_credit: "co-author credit",
+  review_submitted: "review",
+  release: "release",
+  project_published: "project",
+};
+
+const KIND_CLASSES: Record<string, string> = {
+  upstream_pr_state: "kind-pr",
+  upstream_credit: "kind-credit",
+  review_submitted: "kind-review",
+  release: "kind-release",
+  project_published: "kind-release",
+};
+
+const STATE_CLASSES: Record<string, string> = {
+  open: "state-open",
+  merged: "state-merged",
+  closed: "state-closed",
+  changes_requested: "state-review",
+  published: "state-published",
+  released: "state-published",
+  prerelease: "state-review",
+};
+
+function kindLabel(type: string) {
+  return KIND_LABELS[type] ?? type.replace(/_/g, " ");
+}
+
+function stateClass(state: string) {
+  return STATE_CLASSES[state] ?? "state-other";
+}
+
+function stateLabel(state: string) {
+  return state.replace(/_/g, " ");
+}
+
+function movementDay(iso: string) {
+  return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+}
 
 function Arrow() {
   return <span aria-hidden="true">↗</span>;
@@ -39,6 +83,12 @@ export default async function Home() {
   const receiptDate = latestReceipt
     ? new Date(latestReceipt.at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
     : null;
+  const feed = getActivityFeed();
+  const movementEvents = feed.events.slice(0, MOVEMENT_LIMIT);
+  const feedGenerated =
+    feed.generatedAt && !Number.isNaN(Date.parse(feed.generatedAt))
+      ? new Date(feed.generatedAt).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" })
+      : null;
 
   return (
     <main>
@@ -49,6 +99,7 @@ export default async function Home() {
           <span>Arca OSS</span>
         </a>
         <nav aria-label="Primary navigation">
+          <a href="#movement">Movement</a>
           <a href="#maintained">Maintained</a>
           <a href="#support">Supported</a>
           <a href="#ledger">Ledger</a>
@@ -104,9 +155,56 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="section movement-section" id="movement" aria-labelledby="movement-title">
+        <div className="section-heading">
+          <p className="section-number">01 / MOVEMENT</p>
+          <h2 id="movement-title">Recent movement.</h2>
+          <div className="movement-aside">
+            <p>Merged, closed, open, review, and co-author credit stay distinct here. Every row links its canonical public evidence.</p>
+            <p className="movement-feedmeta">
+              <a href="/activity.json">/activity.json</a>
+              {" · "}
+              {feed.cadence}
+              {feedGenerated && feed.generatedAt && (
+                <>
+                  {" · generated "}
+                  <time dateTime={feed.generatedAt}>{feedGenerated} UTC</time>
+                </>
+              )}
+            </p>
+          </div>
+        </div>
+        {movementEvents.length > 0 ? (
+          <div className="movement-list">
+            {movementEvents.map((event) => (
+              <a className="movement-row" href={event.url} key={event.id}>
+                <time className="movement-time" dateTime={event.occurredAt}>{movementDay(event.occurredAt)}</time>
+                <div className="movement-main">
+                  <div className="movement-chips">
+                    <span className={`kind ${KIND_CLASSES[event.type] ?? "kind-release"}`}>{kindLabel(event.type)}</span>
+                    <span className={`state ${stateClass(event.state)}`}>{stateLabel(event.state)}</span>
+                  </div>
+                  <h3>{event.title}</h3>
+                  <p className="movement-meta">
+                    @{event.actor} · {event.role} · {event.repository}{typeof event.number === "number" ? ` #${event.number}` : ""}
+                  </p>
+                </div>
+                <span className="row-arrow" aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p className="movement-empty">No public events recorded yet.</p>
+        )}
+        <p className="ledger-footnote">
+          Newest {movementEvents.length} of {feed.events.length} public events. The machine-readable feed at{" "}
+          <a href="/activity.json">/activity.json</a> carries the full record.
+        </p>
+      </section>
+
       <section className="section" id="maintained" aria-labelledby="maintained-title">
         <div className="section-heading">
-          <p className="section-number">01 / MAINTAINED</p>
+          <p className="section-number">02 / MAINTAINED</p>
           <h2 id="maintained-title">Code we are responsible for.</h2>
           <p>Not a portfolio dump. These repositories have explicit licenses, public source, and a concrete maintenance or publication boundary.</p>
         </div>
@@ -133,7 +231,7 @@ export default async function Home() {
 
       <section className="section section-band support-section" id="support" aria-labelledby="support-title">
         <div className="section-heading">
-          <p className="section-number">02 / SUPPORTED</p>
+          <p className="section-number">03 / SUPPORTED</p>
           <h2 id="support-title">Projects we help carry.</h2>
           <p>Roles are evidence labels, not vibes. “Maintainer,” “reviewer,” and “contributor” appear only when the public record supports the word.</p>
         </div>
@@ -170,7 +268,7 @@ export default async function Home() {
       <section className="section ledger-section" id="ledger" aria-labelledby="ledger-title">
         <div className="section-heading ledger-heading">
           <div>
-            <p className="section-number">03 / UPSTREAM LEDGER</p>
+            <p className="section-number">04 / UPSTREAM LEDGER</p>
             <h2 id="ledger-title">OpenClaw pull requests.</h2>
           </div>
           <div className="refresh-note">
@@ -200,7 +298,7 @@ export default async function Home() {
 
       <section className="section section-band method-section" id="method" aria-labelledby="method-title">
         <div className="section-heading">
-          <p className="section-number">04 / METHOD</p>
+          <p className="section-number">05 / METHOD</p>
           <h2 id="method-title">Evidence before adjectives.</h2>
         </div>
         <ol className="method-list">

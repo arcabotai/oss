@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 
 const licensed = [
   { repository: "arcabotai/a3stack", spdx: "MIT" },
@@ -32,6 +33,9 @@ const clickClackMergeCredits = [
 const headers = {
   Accept: "application/vnd.github+json",
   "User-Agent": "arca-oss-claim-validator",
+  ...((process.env.GH_TOKEN || process.env.GITHUB_TOKEN)
+    ? { Authorization: `Bearer ${process.env.GH_TOKEN || process.env.GITHUB_TOKEN}` }
+    : {}),
 };
 
 async function github(path) {
@@ -121,8 +125,58 @@ assert.equal(
 const hypersnapPr = await github("repos/farcasterorg/hypersnap/pulls/10");
 assert.ok(hypersnapPr.merged_at, "Hypersnap PR #10: expected merged upstream PR");
 
+const activity = JSON.parse(
+  await readFile(new URL("../public/activity.json", import.meta.url), "utf8"),
+);
+const activityTypes = new Set([
+  "upstream_pr_state",
+  "upstream_credit",
+  "release",
+  "project_published",
+  "review_submitted",
+]);
+assert.equal(activity.schemaVersion, 1, "Public activity: unsupported schema version");
+assert.equal(activity.cadence, "every 6 hours", "Public activity: cadence changed");
+assert.ok(activity.events.length > 0 && activity.events.length <= 50, "Public activity: expected 1-50 bounded events");
+assert.equal(new Set(activity.events.map((event) => event.id)).size, activity.events.length, "Public activity: duplicate event IDs");
+for (const [index, event] of activity.events.entries()) {
+  assert.ok(activityTypes.has(event.type), `Public activity ${event.id}: unsupported type`);
+  assert.match(event.url, /^https:\/\/github\.com\//, `Public activity ${event.id}: evidence URL must be public GitHub`);
+  assert.ok(!Number.isNaN(Date.parse(event.occurredAt)), `Public activity ${event.id}: invalid timestamp`);
+  if (index > 0) {
+    assert.ok(
+      activity.events[index - 1].occurredAt >= event.occurredAt,
+      `Public activity ${event.id}: events are not newest first`,
+    );
+  }
+  if (event.type === "upstream_pr_state") {
+    assert.ok(!event.repository.startsWith("arcabotai/"), `Public activity ${event.id}: internal arcabotai PR leaked upstream`);
+    assert.ok(!event.repository.startsWith("felirami/"), `Public activity ${event.id}: internal felirami PR leaked upstream`);
+  }
+}
+assert.ok(
+  activity.events.some(
+    (event) => event.repository === "openclaw/openclaw" && event.number === 107243 && event.actor === "felirami" && event.state === "merged",
+  ),
+  "Public activity: merged founder OpenClaw receipt missing",
+);
+assert.deepEqual(
+  activity.events
+    .filter((event) => event.type === "upstream_credit" && event.repository === "openclaw/clickclack")
+    .map((event) => event.number)
+    .sort((a, b) => a - b),
+  [91, 92],
+  "Public activity: ClickClack merged credits changed",
+);
+assert.ok(
+  activity.events.some(
+    (event) => event.type === "review_submitted" && event.repository === "farcasterorg/hypersnap" && event.number === 10,
+  ),
+  "Public activity: Hypersnap review receipt missing",
+);
+
 console.log(
   `Verified ${licensed.length} licensed repositories, ${prs.length} sampled OpenClaw PR records, ` +
     `1 merged founder PR, ${publicLedger.pullRequests.length} live ledger records, ` +
-    `${clickClackMergeCredits.length} merged ClickClack co-author credits, and 1 upstream review.`,
+    `${activity.events.length} public activity events, ${clickClackMergeCredits.length} merged ClickClack co-author credits, and 1 upstream review.`,
 );

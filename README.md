@@ -12,6 +12,7 @@ The site distinguishes three different things that are often lazily blended toge
 
 - Curated licensed projects: [`lib/data.ts`](lib/data.ts)
 - Live OpenClaw PR ledger: [`arcabotai/arca-openclaw-contributions`](https://github.com/arcabotai/arca-openclaw-contributions), refreshed every six hours for `@arcabotai` and Arca-era `@felirami`; the site revalidates it hourly
+- Public activity feed: [`public/activity.json`](public/activity.json), regenerated every six hours from scoped upstream PRs, public credits, reviews, and releases
 - Curated ClickClack merge-credit receipts: PRs [#91](https://github.com/openclaw/clickclack/pull/91) and [#92](https://github.com/openclaw/clickclack/pull/92), traced to closed origin PR [#78](https://github.com/openclaw/clickclack/pull/78)
 - Fallback snapshot: bundled in `lib/data.ts` so a temporary source outage does not erase the public record
 

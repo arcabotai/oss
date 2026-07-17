@@ -14,11 +14,13 @@
     {
       "login": "arcabotai",
       "role": "Arca agent identity",
+      "since": "2026-02-12",
       "scope": "all account activity"
     },
     {
       "login": "felirami",
       "role": "Arca founder",
+      "since": "2026-02-12",
       "scope": "activity since 2026-02-12"
     }
   ],
@@ -110,6 +112,10 @@
       "credit": "co-author"
     }
   ],
+  "activityFeed": {
+    "url": "https://oss.arcabot.ai/activity.json",
+    "cadence": "every 6 hours"
+  },
   "liveLedgers": [
     "https://raw.githubusercontent.com/arcabotai/arca-openclaw-contributions/main/data/openclaw-prs.json"
   ]

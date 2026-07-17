@@ -1,3 +1,34 @@
+import activityJson from "@/public/activity.json";
+
+export type ActivityEventType =
+  | "upstream_pr_state"
+  | "upstream_credit"
+  | "review_submitted"
+  | "release"
+  | "project_published";
+
+export type ActivityEvent = {
+  id: string;
+  type: ActivityEventType;
+  project: string;
+  repository: string;
+  number?: number;
+  title: string;
+  summary: string;
+  url: string;
+  occurredAt: string;
+  actor: string;
+  role: string;
+  state: string;
+};
+
+export type ActivityFeed = {
+  schemaVersion: number;
+  generatedAt: string;
+  cadence: string;
+  events: ActivityEvent[];
+};
+
 export type OwnedProject = {
   name: string;
   repository: string;
@@ -350,4 +381,27 @@ export async function getOpenClawLedger(): Promise<OpenClawLedger> {
   } catch {
     return fallbackLedger;
   }
+}
+
+const emptyActivityFeed: ActivityFeed = {
+  schemaVersion: 1,
+  generatedAt: "",
+  cadence: "every 6 hours",
+  events: [],
+};
+
+export function getActivityFeed(): ActivityFeed {
+  const feed = activityJson as ActivityFeed;
+  if (!Array.isArray(feed.events)) return emptyActivityFeed;
+  const events = feed.events
+    .filter(
+      (event) =>
+        event &&
+        typeof event.id === "string" &&
+        typeof event.url === "string" &&
+        typeof event.title === "string" &&
+        !Number.isNaN(Date.parse(event.occurredAt)),
+    )
+    .sort((a, b) => Date.parse(b.occurredAt) - Date.parse(a.occurredAt));
+  return { ...feed, events };
 }

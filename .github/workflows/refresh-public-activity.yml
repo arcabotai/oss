@@ -1,0 +1,42 @@
+name: Refresh public activity
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-public-activity
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run test:activity
+      - run: npm run refresh:activity
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - run: npm run check:claims
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Commit changed public receipts
+        run: |
+          if git diff --quiet -- public/activity.json; then
+            echo "No public activity changes."
+            exit 0
+          fi
+          git config user.name "Cad from Arca"
+          git config user.email "cad@arcabot.ai"
+          git add public/activity.json
+          git commit -m "chore: refresh public activity"
+          git push

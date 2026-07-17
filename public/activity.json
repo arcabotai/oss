@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-17T14:11:39Z",
+  "cadence": "every 6 hours",
+  "events": [
+    {
+      "id": "github:credit:openclaw/clickclack:92:co-author",
+      "type": "upstream_credit",
+      "project": "ClickClack",
+      "repository": "openclaw/clickclack",
+      "number": 92,
+      "title": "feat: add typed agent progress events",
+      "summary": "Merged with public Arca co-author credit",
+      "url": "https://github.com/openclaw/clickclack/pull/92",
+      "occurredAt": "2026-07-17T04:37:02Z",
+      "actor": "arcabotai",
+      "role": "co-author",
+      "state": "merged",
+      "evidence": {
+        "implementationCommit": "068ce38bf1e93e8caec8090dcbc573fb4a48bf45",
+        "mergeCommit": "064a46fc73e11dff15cc2af03e631a28b42ddef1"
+      }
+    },
+    {
+      "id": "github:credit:openclaw/clickclack:91:co-author",
+      "type": "upstream_credit",
+      "project": "ClickClack",
+      "repository": "openclaw/clickclack",
+      "number": 91,
+      "title": "feat: add integration history helpers",
+      "summary": "Merged with public Arca co-author credit",
+      "url": "https://github.com/openclaw/clickclack/pull/91",
+      "occurredAt": "2026-07-17T04:25:50Z",
+      "actor": "arcabotai",
+      "role": "co-author",
+      "state": "merged",
+      "evidence": {
+        "implementationCommit": "79d96964549d020143d50cbc4794ad460bf1ed87",
+        "mergeCommit": "3e1d2841a314c139c1f053605dbb6d94d9e81a07"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/clickclack:78:closed",
+      "type": "upstream_pr_state",
+      "project": "clickclack",
+      "repository": "openclaw/clickclack",
+      "number": 78,
+      "title": "feat: add Hermes Agent connector example",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/openclaw/clickclack/pull/78",
+      "occurredAt": "2026-07-17T03:21:14Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "5a20a79973c8e807f7d92d739c5f0c7a7d1281cd",
+        "mergeCommit": "93529b3c7ad9a076604c8c6280e99afc9474d3cb"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:107901:closed",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 107901,
+      "title": "fix(update): reject npm redacted global root paths",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/openclaw/openclaw/pull/107901",
+      "occurredAt": "2026-07-15T03:27:44Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "1dab58ea4d0a61221c9d7884b5a8bc9d1c043511",
+        "mergeCommit": "14de221f1422dc522ae8a4bcff98e6eead018c4e"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:107963:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 107963,
+      "title": "fix(update): reject npm redacted global root paths",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/107963",
+      "occurredAt": "2026-07-15T03:25:34Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "a4e3041b8660fadcd1615e5d15b30d30e859e666",
+        "mergeCommit": null
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:107243:merged",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 107243,
+      "title": "fix(memory-core): preserve canonical cache rows during legacy migration",
+      "summary": "Merged upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/107243",
+      "occurredAt": "2026-07-14T16:40:36Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "e35ddb3ce365c07419365d5b799bbb45b65ac38e",
+        "mergeCommit": "c1191cdf2fbbea4cc9797d7f110a4e0acf50d3c7"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:107304:closed",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 107304,
+      "title": "fix(zai): Coding Plan chat turns always fail with fake rate-limit when system prompt carries OpenClaw signature line",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/openclaw/openclaw/pull/107304",
+      "occurredAt": "2026-07-14T09:40:22Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "179050b9ef194efc7bc68b3d5375233600f09b8f",
+        "mergeCommit": "253ff6145af95d2e5696e81879f30f5eff00799c"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:107276:closed",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 107276,
+      "title": "fix(memory-core): preserve canonical embedding cache on migration",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/openclaw/openclaw/pull/107276",
+      "occurredAt": "2026-07-14T08:37:48Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "3072762c82526c0fce27804c6b3839f0002db49a",
+        "mergeCommit": "bb66f10655e2a8e626ddc799fdd22f2b255e410f"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:104893:merged",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 104893,
+      "title": "fix(discord): retry stale preview cleanup after final delivery",
+      "summary": "Merged upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/104893",
+      "occurredAt": "2026-07-13T10:23:28Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "574cc1ea367cc3c24fd81334833988cfc4dd86c3",
+        "mergeCommit": "0e5ed900b0f84d313b7df11d038fd546baf301bb"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:104192:closed",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 104192,
+      "title": "fix(secrets): resolve active exec refs locally",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/openclaw/openclaw/pull/104192",
+      "occurredAt": "2026-07-12T09:08:56Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "02a66be2410cd70c97e7d9305024c7fb5496ea63",
+        "mergeCommit": "cfcca6f452b984cf1ff92f3ddf1cac72c3592d37"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:105029:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 105029,
+      "title": "fix(gateway): revoke attach grants on deletion",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/105029",
+      "occurredAt": "2026-07-12T05:47:08Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "fb137a71e7288e7e166a717bfec8ae8f2fecf562",
+        "mergeCommit": null
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:104492:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 104492,
+      "title": "fix(gateway): preserve channel restart ownership",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/104492",
+      "occurredAt": "2026-07-11T13:33:32Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "1d7a7be25af3f4a4ef9ce2aa9c07699508cce405",
+        "mergeCommit": null
+      }
+    },
+    {
+      "id": "github:review:farcasterorg/hypersnap:10:4177281968",
+      "type": "review_submitted",
+      "project": "Hypersnap / Snapchain",
+      "repository": "farcasterorg/hypersnap",
+      "number": 10,
+      "title": "fix: missing hyper api, backfill, nightly deploys",
+      "summary": "Submitted changes requested review",
+      "url": "https://github.com/farcasterorg/hypersnap/pull/10#pullrequestreview-4177281968",
+      "occurredAt": "2026-04-26T18:39:27Z",
+      "actor": "arcabotai",
+      "role": "reviewer",
+      "state": "changes_requested",
+      "evidence": {
+        "reviewId": 4177281968,
+        "commitId": "fbf08fcc1465e1fa084f2561312f41d9a8ebbf18"
+      }
+    }
+  ]
+}
