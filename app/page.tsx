@@ -22,6 +22,19 @@ export default async function Home() {
   const ledger = await getOpenClawLedger();
   const merged = ledger.pullRequests.filter((pr) => pr.state === "merged").length;
   const clickClackMerged = clickClackMergeCredits.length;
+  const latestReceipt = [
+    ...ledger.pullRequests
+      .filter((pr) => pr.mergedAt !== null)
+      .map((pr) => ({ label: `OpenClaw #${pr.number}`, url: pr.url, at: pr.mergedAt as string })),
+    ...clickClackMergeCredits.map((credit) => ({
+      label: `${credit.project} #${credit.number}`,
+      url: credit.url,
+      at: credit.mergedAt,
+    })),
+  ].sort((a, b) => Date.parse(b.at) - Date.parse(a.at))[0];
+  const receiptDate = latestReceipt
+    ? new Date(latestReceipt.at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
+    : null;
 
   return (
     <main>
@@ -41,7 +54,7 @@ export default async function Home() {
       </header>
 
       <section className="hero" id="top" aria-labelledby="hero-title">
-        <div className="hero-copy" id="content">
+        <div className="hero-copy" id="content" tabIndex={-1}>
           <p className="eyebrow"><span className="signal-dot" /> public engineering index</p>
           <h1 id="hero-title">Software should<br />leave receipts.</h1>
           <p className="lede">
@@ -60,15 +73,12 @@ export default async function Home() {
         <div className="source-map" aria-label="Map of Arca's open-source work and upstream support">
           <div className="map-label">SOURCE MAP / 001</div>
           <div className="map-grid" aria-hidden="true">
+            <div className="map-plate" />
             <div className="map-node map-core"><span>ARCA</span><strong>OSS</strong><small>Santiago</small></div>
             <div className="map-node map-a3"><small>maintain</small><strong>A3Stack</strong><span>MIT</span></div>
             <div className="map-node map-hyper"><small>maintain</small><strong>Hypersnap</strong><span>MIT</span></div>
             <div className="map-node map-claw"><small>support</small><strong>OpenClaw</strong><span>{ledger.pullRequests.length} PRs</span></div>
             <div className="map-node map-proof"><small>co-author</small><strong>ClickClack</strong><span>{clickClackMerged} merged</span></div>
-            <svg viewBox="0 0 600 420" preserveAspectRatio="none">
-              <path d="M300 210 L105 85 M300 210 L492 96 M300 210 L112 335 M300 210 L500 330" />
-              <circle cx="300" cy="210" r="116" />
-            </svg>
           </div>
           <div className="map-footer"><span>licensed code</span><span>upstream work</span><span>public proof</span></div>
         </div>
@@ -79,7 +89,15 @@ export default async function Home() {
         <div><strong>{ledger.pullRequests.length}</strong><span>authored OpenClaw PRs</span></div>
         <div><strong>{merged}</strong><span>merged OpenClaw PRs</span></div>
         <div><strong>{clickClackMerged}</strong><span>merged ClickClack co-credits</span></div>
-        <div className="measure-source"><span>source</span><a href="#support">public receipts <Arrow /></a></div>
+        <div className="measure-source">
+          <span>source</span>
+          <a href="#support">public receipts <Arrow /></a>
+          {latestReceipt && receiptDate && (
+            <p className="measure-latest">
+              latest receipt · <a href={latestReceipt.url}>{latestReceipt.label} <Arrow /></a> merged <time dateTime={latestReceipt.at}>{receiptDate}</time>
+            </p>
+          )}
+        </div>
       </section>
 
       <section className="section" id="maintained" aria-labelledby="maintained-title">
@@ -109,7 +127,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section support-section" id="support" aria-labelledby="support-title">
+      <section className="section section-band support-section" id="support" aria-labelledby="support-title">
         <div className="section-heading">
           <p className="section-number">02 / SUPPORTED</p>
           <h2 id="support-title">Projects we help carry.</h2>
@@ -173,7 +191,7 @@ export default async function Home() {
         <p className="ledger-footnote">An authored PR is work. A merged PR is upstream code. A closed PR stays in the record instead of being quietly airbrushed.</p>
       </section>
 
-      <section className="section method-section" id="method" aria-labelledby="method-title">
+      <section className="section section-band method-section" id="method" aria-labelledby="method-title">
         <div className="section-heading">
           <p className="section-number">04 / METHOD</p>
           <h2 id="method-title">Evidence before adjectives.</h2>
