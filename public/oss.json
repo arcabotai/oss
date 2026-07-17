@@ -7,6 +7,7 @@
     "licensedOnly": true,
     "publicDoesNotMeanOpenSource": true,
     "authoredPullRequestDoesNotMeanMerged": true,
+    "coauthorCreditDoesNotMeanPullRequestAuthorship": true,
     "supportDoesNotImplyAffiliation": true
   },
   "projects": [
@@ -63,6 +64,38 @@
         }
       ],
       "affiliated": false
+    },
+    {
+      "name": "ClickClack",
+      "upstream": "https://github.com/openclaw/clickclack",
+      "role": "upstream co-contributor",
+      "originPullRequest": "https://github.com/openclaw/clickclack/pull/78",
+      "mergedCredits": [
+        "https://github.com/openclaw/clickclack/pull/91",
+        "https://github.com/openclaw/clickclack/pull/92"
+      ],
+      "creditBoundary": "The origin PR closed unmerged. Two maintainer-authored replacement PRs merged with Cad co-author trailers and changelog thanks to @arcabotai.",
+      "affiliated": false
+    }
+  ],
+  "mergedUpstreamCredits": [
+    {
+      "project": "ClickClack",
+      "pullRequest": 91,
+      "url": "https://github.com/openclaw/clickclack/pull/91",
+      "mergedAt": "2026-07-17T04:25:50Z",
+      "implementationCommit": "79d96964549d020143d50cbc4794ad460bf1ed87",
+      "mergeCommit": "3e1d2841a314c139c1f053605dbb6d94d9e81a07",
+      "credit": "co-author"
+    },
+    {
+      "project": "ClickClack",
+      "pullRequest": 92,
+      "url": "https://github.com/openclaw/clickclack/pull/92",
+      "mergedAt": "2026-07-17T04:37:02Z",
+      "implementationCommit": "068ce38bf1e93e8caec8090dcbc573fb4a48bf45",
+      "mergeCommit": "064a46fc73e11dff15cc2af03e631a28b42ddef1",
+      "credit": "co-author"
     }
   ],
   "liveLedgers": [

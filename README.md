@@ -12,6 +12,7 @@ The site distinguishes three different things that are often lazily blended toge
 
 - Curated licensed projects: [`lib/data.ts`](lib/data.ts)
 - Live OpenClaw PR ledger: [`arcabotai/arca-openclaw-contributions`](https://github.com/arcabotai/arca-openclaw-contributions)
+- Curated ClickClack merge-credit receipts: PRs [#91](https://github.com/openclaw/clickclack/pull/91) and [#92](https://github.com/openclaw/clickclack/pull/92), traced to closed origin PR [#78](https://github.com/openclaw/clickclack/pull/78)
 - Fallback snapshot: bundled in `lib/data.ts` so a temporary source outage does not erase the public record
 
 ## Local development
@@ -32,7 +33,7 @@ npm run check:claims
 
 ## Evidence policy
 
-Public is not automatically open source. An Arca repository appears as OSS only when it has an explicit license. An authored PR is never represented as merged until the upstream host says it merged. Support does not imply affiliation.
+Public is not automatically open source. An Arca repository appears as OSS only when it has an explicit license. Authored, open, closed, superseded, merged, and co-authored contributions stay distinct. Support and co-author credit do not imply upstream maintenance or affiliation.
 
 ## License
 

@@ -18,11 +18,23 @@ export type SupportProgram = {
   status: string;
   evidence: string;
   evidenceLabel: string;
-  review?: {
+  additionalEvidence?: Array<{
     label: string;
     url: string;
-  };
+  }>;
   note: string;
+};
+
+export type UpstreamMergeCredit = {
+  project: string;
+  number: number;
+  title: string;
+  url: string;
+  mergedAt: string;
+  implementationCommit: string;
+  mergeCommit: string;
+  originUrl: string;
+  credit: "co-author";
 };
 
 export type PullRequestRecord = {
@@ -110,6 +122,31 @@ export const ownedProjects: OwnedProject[] = [
   },
 ];
 
+export const clickClackMergeCredits: UpstreamMergeCredit[] = [
+  {
+    project: "ClickClack",
+    number: 91,
+    title: "feat: add integration history helpers",
+    url: "https://github.com/openclaw/clickclack/pull/91",
+    mergedAt: "2026-07-17T04:25:50Z",
+    implementationCommit: "79d96964549d020143d50cbc4794ad460bf1ed87",
+    mergeCommit: "3e1d2841a314c139c1f053605dbb6d94d9e81a07",
+    originUrl: "https://github.com/openclaw/clickclack/pull/78",
+    credit: "co-author",
+  },
+  {
+    project: "ClickClack",
+    number: 92,
+    title: "feat: add typed agent progress events",
+    url: "https://github.com/openclaw/clickclack/pull/92",
+    mergedAt: "2026-07-17T04:37:02Z",
+    implementationCommit: "068ce38bf1e93e8caec8090dcbc573fb4a48bf45",
+    mergeCommit: "064a46fc73e11dff15cc2af03e631a28b42ddef1",
+    originUrl: "https://github.com/openclaw/clickclack/pull/78",
+    credit: "co-author",
+  },
+];
+
 export const supportPrograms: SupportProgram[] = [
   {
     name: "OpenClaw",
@@ -129,11 +166,33 @@ export const supportPrograms: SupportProgram[] = [
     status: "active",
     evidence: "https://github.com/arcabotai/hypersnap",
     evidenceLabel: "operator toolkit",
-    review: {
-      label: "review #10",
-      url: "https://github.com/farcasterorg/hypersnap/pull/10#pullrequestreview-4177281968",
-    },
+    additionalEvidence: [
+      {
+        label: "review #10",
+        url: "https://github.com/farcasterorg/hypersnap/pull/10#pullrequestreview-4177281968",
+      },
+    ],
     note: "Arca maintains independent tooling and submitted a public security/correctness review; upstream ownership stays upstream.",
+  },
+  {
+    name: "ClickClack",
+    url: "https://github.com/openclaw/clickclack",
+    role: "upstream co-contributor",
+    scope: "integration history helpers · typed agent progress SDK",
+    status: "merged credit",
+    evidence: "https://github.com/openclaw/clickclack/pull/91",
+    evidenceLabel: "merged PR #91",
+    additionalEvidence: [
+      {
+        label: "merged PR #92",
+        url: "https://github.com/openclaw/clickclack/pull/92",
+      },
+      {
+        label: "origin PR #78",
+        url: "https://github.com/openclaw/clickclack/pull/78",
+      },
+    ],
+    note: "ClickClack maintainers extracted two generic capabilities from Arca's closed connector proposal. Both merged implementation commits retain Cad's co-author credit, and both changelog entries thank @arcabotai. Arca is not a ClickClack maintainer or affiliate.",
   },
 ];
 

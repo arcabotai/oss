@@ -9,6 +9,20 @@ const licensed = [
 ];
 
 const prs = [104192, 104492, 104893, 105029];
+const clickClackMergeCredits = [
+  {
+    number: 91,
+    implementationCommit: "79d96964549d020143d50cbc4794ad460bf1ed87",
+    mergeCommit: "3e1d2841a314c139c1f053605dbb6d94d9e81a07",
+    changelogText: "Added SDK helpers for paginated realtime recovery and bounded latest thread-history windows. Thanks @arcabotai",
+  },
+  {
+    number: 92,
+    implementationCommit: "068ce38bf1e93e8caec8090dcbc573fb4a48bf45",
+    mergeCommit: "064a46fc73e11dff15cc2af03e631a28b42ddef1",
+    changelogText: "Added typed agent-progress SDK payloads while preserving workspace-wide presence events without channel or DM targets. Thanks @arcabotai",
+  },
+];
 const headers = {
   Accept: "application/vnd.github+json",
   "User-Agent": "arca-oss-claim-validator",
@@ -44,6 +58,29 @@ for (const number of prs) {
   assert.ok(["open", "closed", "merged"].includes(state), `PR #${number}: invalid state ${state}`);
 }
 
+for (const expected of clickClackMergeCredits) {
+  const pr = await github(`repos/openclaw/clickclack/pulls/${expected.number}`);
+  assert.ok(pr.merged_at, `ClickClack PR #${expected.number}: expected merged state`);
+  assert.equal(pr.merge_commit_sha, expected.mergeCommit, `ClickClack PR #${expected.number}: merge commit changed`);
+  assert.equal(pr.user?.login, "steipete", `ClickClack PR #${expected.number}: expected maintainer-authored replacement PR`);
+  assert.ok(pr.body?.includes("#78") || pr.body?.includes("pull/78"), `ClickClack PR #${expected.number}: origin PR #78 credit missing`);
+  assert.ok(pr.body?.includes("@arcabotai"), `ClickClack PR #${expected.number}: @arcabotai credit missing`);
+
+  const commit = await github(`repos/openclaw/clickclack/commits/${expected.implementationCommit}`);
+  assert.ok(
+    commit.commit?.message?.includes("Co-authored-by: Cad from Arca <cad@arcabot.ai>"),
+    `ClickClack PR #${expected.number}: Cad co-author trailer missing`,
+  );
+}
+
+const clickClackChangelog = await githubText("repos/openclaw/clickclack/contents/CHANGELOG.md?ref=main");
+for (const expected of clickClackMergeCredits) {
+  assert.ok(
+    clickClackChangelog.includes(expected.changelogText),
+    `ClickClack PR #${expected.number}: changelog credit missing`,
+  );
+}
+
 const reviews = await github("repos/farcasterorg/hypersnap/pulls/10/reviews");
 const review = reviews.find((item) => item.user?.login === "arcabotai");
 assert.ok(review, "Hypersnap PR #10: arcabotai review not found");
@@ -57,4 +94,7 @@ assert.equal(
 const hypersnapPr = await github("repos/farcasterorg/hypersnap/pulls/10");
 assert.ok(hypersnapPr.merged_at, "Hypersnap PR #10: expected merged upstream PR");
 
-console.log(`Verified ${licensed.length} licensed repositories, ${prs.length} upstream PR records, and 1 upstream review.`);
+console.log(
+  `Verified ${licensed.length} licensed repositories, ${prs.length} OpenClaw PR records, ` +
+    `${clickClackMergeCredits.length} merged ClickClack co-author credits, and 1 upstream review.`,
+);

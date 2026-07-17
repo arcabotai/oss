@@ -1,4 +1,4 @@
-import { getOpenClawLedger, ownedProjects, supportPrograms } from "@/lib/data";
+import { clickClackMergeCredits, getOpenClawLedger, ownedProjects, supportPrograms } from "@/lib/data";
 
 function Arrow() {
   return <span aria-hidden="true">↗</span>;
@@ -21,7 +21,7 @@ function publicBoundary(pr: Awaited<ReturnType<typeof getOpenClawLedger>>["pullR
 export default async function Home() {
   const ledger = await getOpenClawLedger();
   const merged = ledger.pullRequests.filter((pr) => pr.state === "merged").length;
-  const open = ledger.pullRequests.filter((pr) => pr.state === "open").length;
+  const clickClackMerged = clickClackMergeCredits.length;
 
   return (
     <main>
@@ -64,7 +64,7 @@ export default async function Home() {
             <div className="map-node map-a3"><small>maintain</small><strong>A3Stack</strong><span>MIT</span></div>
             <div className="map-node map-hyper"><small>maintain</small><strong>Hypersnap</strong><span>MIT</span></div>
             <div className="map-node map-claw"><small>support</small><strong>OpenClaw</strong><span>{ledger.pullRequests.length} PRs</span></div>
-            <div className="map-node map-proof"><small>publish</small><strong>Proof</strong><span>{merged} merged</span></div>
+            <div className="map-node map-proof"><small>co-author</small><strong>ClickClack</strong><span>{clickClackMerged} merged</span></div>
             <svg viewBox="0 0 600 420" preserveAspectRatio="none">
               <path d="M300 210 L105 85 M300 210 L492 96 M300 210 L112 335 M300 210 L500 330" />
               <circle cx="300" cy="210" r="116" />
@@ -77,9 +77,9 @@ export default async function Home() {
       <section className="measure-strip" aria-label="Current public record summary">
         <div><strong>{ownedProjects.length}</strong><span>licensed Arca projects</span></div>
         <div><strong>{ledger.pullRequests.length}</strong><span>authored OpenClaw PRs</span></div>
-        <div><strong>{merged}</strong><span>merged upstream</span></div>
-        <div><strong>{open}</strong><span>open upstream</span></div>
-        <div className="measure-source"><span>source</span><a href="https://github.com/arcabotai/arca-openclaw-contributions">public ledger <Arrow /></a></div>
+        <div><strong>{merged}</strong><span>merged OpenClaw PRs</span></div>
+        <div><strong>{clickClackMerged}</strong><span>merged ClickClack co-credits</span></div>
+        <div className="measure-source"><span>source</span><a href="#support">public receipts <Arrow /></a></div>
       </section>
 
       <section className="section" id="maintained" aria-labelledby="maintained-title">
@@ -126,7 +126,9 @@ export default async function Home() {
                 <span>Evidence</span>
                 <div className="record-links">
                   <a href={program.evidence}>{program.evidenceLabel} <Arrow /></a>
-                  {program.review && <a href={program.review.url}>{program.review.label} <Arrow /></a>}
+                  {program.additionalEvidence?.map((evidence) => (
+                    <a href={evidence.url} key={evidence.url}>{evidence.label} <Arrow /></a>
+                  ))}
                 </div>
               </div>
               <small>{program.note}</small>

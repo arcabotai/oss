@@ -150,7 +150,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-
 .repo-name { text-transform: none; word-break: break-word; }
 .row-arrow { color: var(--bronze); }
 
-.support-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.support-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .support-record { background: var(--ink); padding: 28px; min-height: 330px; display: flex; flex-direction: column; }
 .record-topline { display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 9px; }
 .record-topline span:last-child { margin-left: auto; }
@@ -220,7 +220,6 @@ footer a:hover { color: var(--teal); }
   .section-heading > p:last-child { grid-column: 2; }
   .project-row { grid-template-columns: 42px 1fr 180px 18px; }
   .support-grid { grid-template-columns: 1fr 1fr; }
-  .support-policy { grid-column: span 2; min-height: 260px; }
   .pr-row { grid-template-columns: 1fr 160px; }
   .pr-head { display: none; }
   .pr-work { grid-column: 1; }

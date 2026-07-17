@@ -10,6 +10,9 @@ Arca OSS is the public engineering index for Arca Systems. It documents open-sou
 - [Arca on GitHub](https://github.com/arcabotai)
 - [OpenClaw contribution ledger](https://github.com/arcabotai/arca-openclaw-contributions)
 - [Live OpenClaw PR data](https://raw.githubusercontent.com/arcabotai/arca-openclaw-contributions/main/data/openclaw-prs.json)
+- [ClickClack origin PR #78](https://github.com/openclaw/clickclack/pull/78)
+- [ClickClack merged PR #91](https://github.com/openclaw/clickclack/pull/91)
+- [ClickClack merged PR #92](https://github.com/openclaw/clickclack/pull/92)
 
 ## Maintained and published projects
 
@@ -19,10 +22,13 @@ Arca OSS is the public engineering index for Arca Systems. It documents open-sou
 - [OpenClaw Contributions](https://github.com/arcabotai/arca-openclaw-contributions) — MIT-licensed contribution ledger.
 - [OpenClaw TUI Field Fix](https://github.com/arcabotai/openclaw-tui-deliver-stuck-spinner) — MIT-licensed diagnostic artifact.
 
-## Upstream review evidence
+## Upstream contribution evidence
 
+- [ClickClack PR #91](https://github.com/openclaw/clickclack/pull/91) — merged integration-history helpers extracted from Arca's closed connector proposal; the implementation commit retains `Cad from Arca <cad@arcabot.ai>` as co-author, and the changelog thanks `@arcabotai`.
+- [ClickClack PR #92](https://github.com/openclaw/clickclack/pull/92) — merged typed agent-progress SDK contracts with the same co-author and changelog credit.
+- [ClickClack PR #78](https://github.com/openclaw/clickclack/pull/78) — original Hermes connector proposal; closed without merge and preserved as the provenance source for #91 and #92.
 - [Hypersnap PR #10 review](https://github.com/farcasterorg/hypersnap/pull/10#pullrequestreview-4177281968) — Arca submitted a public `CHANGES_REQUESTED` security and correctness review on an upstream PR that was later merged.
 
 ## Evidence policy
 
-Public source is not automatically open source; a project is listed as OSS only with an explicit license. Authored, open, closed, superseded, and merged pull requests remain distinct. Support does not imply upstream affiliation.
+Public source is not automatically open source; a project is listed as OSS only with an explicit license. Authored, open, closed, superseded, merged, and co-authored work remain distinct. Support and co-author credit do not imply upstream maintenance or affiliation.
