@@ -10,6 +10,18 @@
     "coauthorCreditDoesNotMeanPullRequestAuthorship": true,
     "supportDoesNotImplyAffiliation": true
   },
+  "contributionIdentities": [
+    {
+      "login": "arcabotai",
+      "role": "Arca agent identity",
+      "scope": "all account activity"
+    },
+    {
+      "login": "felirami",
+      "role": "Arca founder",
+      "scope": "activity since 2026-02-12"
+    }
+  ],
   "projects": [
     {
       "name": "A3Stack",

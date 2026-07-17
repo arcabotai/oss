@@ -37,8 +37,16 @@ export type UpstreamMergeCredit = {
   credit: "co-author";
 };
 
+export type ContributionIdentity = {
+  login: string;
+  role: string;
+  since: string | null;
+};
+
 export type PullRequestRecord = {
   number: number;
+  author?: string;
+  identityRole?: string;
   title: string;
   url: string;
   state: "open" | "closed" | "merged";
@@ -56,6 +64,7 @@ export type PullRequestRecord = {
 export type OpenClawLedger = {
   generatedAt: string;
   source: string;
+  authors?: ContributionIdentity[];
   pullRequests: PullRequestRecord[];
 };
 
@@ -197,11 +206,82 @@ export const supportPrograms: SupportProgram[] = [
 ];
 
 const fallbackLedger: OpenClawLedger = {
-  generatedAt: "2026-07-13T15:14:25+00:00",
+  generatedAt: "2026-07-17T13:45:57+00:00",
   source: "https://github.com/openclaw/openclaw",
+  authors: [
+    { login: "arcabotai", role: "Arca agent identity", since: null },
+    { login: "felirami", role: "Arca founder", since: "2026-02-12" },
+  ],
   pullRequests: [
     {
+      number: 107963,
+      author: "arcabotai",
+      identityRole: "Arca agent identity",
+      title: "fix(update): reject npm redacted global root paths",
+      url: "https://github.com/openclaw/openclaw/pull/107963",
+      state: "open",
+      updatedAt: "2026-07-16T06:21:02Z",
+      mergedAt: null,
+      headSha: "a4e3041b8660fadcd1615e5d15b30d30e859e666",
+      ratingLabel: "🦪 silver shellfish",
+      statusLabel: "📣 needs proof",
+    },
+    {
+      number: 107901,
+      author: "felirami",
+      identityRole: "Arca founder",
+      title: "fix(update): reject npm redacted global root paths",
+      url: "https://github.com/openclaw/openclaw/pull/107901",
+      state: "closed",
+      updatedAt: "2026-07-15T03:27:44Z",
+      mergedAt: null,
+      headSha: "1dab58ea4d0a61221c9d7884b5a8bc9d1c043511",
+      ratingLabel: null,
+      statusLabel: null,
+    },
+    {
+      number: 107304,
+      author: "felirami",
+      identityRole: "Arca founder",
+      title: "fix(zai): Coding Plan chat turns always fail with fake rate-limit when system prompt carries OpenClaw signature line",
+      url: "https://github.com/openclaw/openclaw/pull/107304",
+      state: "closed",
+      updatedAt: "2026-07-15T02:30:52Z",
+      mergedAt: null,
+      headSha: "179050b9ef194efc7bc68b3d5375233600f09b8f",
+      ratingLabel: null,
+      statusLabel: null,
+    },
+    {
+      number: 107276,
+      author: "arcabotai",
+      identityRole: "Arca agent identity",
+      title: "fix(memory-core): preserve canonical embedding cache on migration",
+      url: "https://github.com/openclaw/openclaw/pull/107276",
+      state: "closed",
+      updatedAt: "2026-07-14T08:37:48Z",
+      mergedAt: null,
+      headSha: "3072762c82526c0fce27804c6b3839f0002db49a",
+      ratingLabel: null,
+      statusLabel: null,
+    },
+    {
+      number: 107243,
+      author: "felirami",
+      identityRole: "Arca founder",
+      title: "fix(memory-core): preserve canonical cache rows during legacy migration",
+      url: "https://github.com/openclaw/openclaw/pull/107243",
+      state: "merged",
+      updatedAt: "2026-07-14T16:40:40Z",
+      mergedAt: "2026-07-14T16:40:36Z",
+      headSha: "e35ddb3ce365c07419365d5b799bbb45b65ac38e",
+      ratingLabel: "🦐 gold shrimp",
+      statusLabel: "⏳ waiting on author",
+    },
+    {
       number: 105029,
+      author: "arcabotai",
+      identityRole: "Arca agent identity",
       title: "fix(gateway): revoke attach grants on deletion",
       url: "https://github.com/openclaw/openclaw/pull/105029",
       state: "open",
@@ -214,6 +294,8 @@ const fallbackLedger: OpenClawLedger = {
     },
     {
       number: 104893,
+      author: "arcabotai",
+      identityRole: "Arca agent identity",
       title: "fix(discord): retry stale preview cleanup after final delivery",
       url: "https://github.com/openclaw/openclaw/pull/104893",
       state: "merged",
@@ -226,6 +308,8 @@ const fallbackLedger: OpenClawLedger = {
     },
     {
       number: 104492,
+      author: "arcabotai",
+      identityRole: "Arca agent identity",
       title: "fix(gateway): preserve channel restart ownership",
       url: "https://github.com/openclaw/openclaw/pull/104492",
       state: "open",
@@ -238,6 +322,8 @@ const fallbackLedger: OpenClawLedger = {
     },
     {
       number: 104192,
+      author: "arcabotai",
+      identityRole: "Arca agent identity",
       title: "fix(secrets): resolve active exec refs locally",
       url: "https://github.com/openclaw/openclaw/pull/104192",
       state: "closed",

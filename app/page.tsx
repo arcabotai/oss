@@ -25,7 +25,11 @@ export default async function Home() {
   const latestReceipt = [
     ...ledger.pullRequests
       .filter((pr) => pr.mergedAt !== null)
-      .map((pr) => ({ label: `OpenClaw #${pr.number}`, url: pr.url, at: pr.mergedAt as string })),
+      .map((pr) => ({
+        label: `${pr.author ? `@${pr.author} · ` : ""}OpenClaw #${pr.number}`,
+        url: pr.url,
+        at: pr.mergedAt as string,
+      })),
     ...clickClackMergeCredits.map((credit) => ({
       label: `${credit.project} #${credit.number}`,
       url: credit.url,
@@ -86,7 +90,7 @@ export default async function Home() {
 
       <section className="measure-strip" aria-label="Current public record summary">
         <div><strong>{ownedProjects.length}</strong><span>licensed Arca projects</span></div>
-        <div><strong>{ledger.pullRequests.length}</strong><span>authored OpenClaw PRs</span></div>
+        <div><strong>{ledger.pullRequests.length}</strong><span>Arca-associated OpenClaw PRs</span></div>
         <div><strong>{merged}</strong><span>merged OpenClaw PRs</span></div>
         <div><strong>{clickClackMerged}</strong><span>merged ClickClack co-credits</span></div>
         <div className="measure-source">
@@ -181,7 +185,10 @@ export default async function Home() {
           </div>
           {ledger.pullRequests.map((pr) => (
             <a className="pr-row" href={pr.url} key={pr.number}>
-              <span className="pr-title"><strong>#{pr.number}</strong>{pr.title}</span>
+              <span className="pr-title">
+                <span className="pr-kicker"><strong>#{pr.number}</strong><small>@{pr.author ?? "arcabotai"}</small></span>
+                {pr.title}
+              </span>
               <span><StateMark state={pr.state} />{pr.ratingLabel && <small>{pr.ratingLabel}</small>}</span>
               <span className="pr-work">{publicBoundary(pr)}</span>
               <code>{pr.headSha.slice(0, 12)}</code>

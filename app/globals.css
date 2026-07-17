@@ -187,7 +187,9 @@ a:focus-visible, button:focus-visible, .hero-copy:focus-visible { outline: 2px s
 a.pr-row:hover { background: rgba(98,210,189,.035); }
 .pr-head { min-height: 44px; font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
 .pr-title { display: flex; flex-direction: column; gap: 4px; }
+.pr-kicker { display: flex; align-items: center; gap: 10px; }
 .pr-title strong { color: var(--bronze); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.pr-kicker small { color: var(--teal); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; }
 .pr-row > span:nth-child(2) { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
 .pr-row small { color: var(--muted); font-size: 9px; }
 .state { font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; border: 1px solid; padding: 3px 7px; }

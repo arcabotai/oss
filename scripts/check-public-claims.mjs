@@ -9,6 +9,12 @@ const licensed = [
 ];
 
 const prs = [104192, 104492, 104893, 105029];
+const founderMergedPr = {
+  number: 107243,
+  author: "felirami",
+  headSha: "e35ddb3ce365c07419365d5b799bbb45b65ac38e",
+  mergeCommit: "c1191cdf2fbbea4cc9797d7f110a4e0acf50d3c7",
+};
 const clickClackMergeCredits = [
   {
     number: 91,
@@ -58,6 +64,27 @@ for (const number of prs) {
   assert.ok(["open", "closed", "merged"].includes(state), `PR #${number}: invalid state ${state}`);
 }
 
+const founderPr = await github(`repos/openclaw/openclaw/pulls/${founderMergedPr.number}`);
+assert.ok(founderPr.merged_at, `OpenClaw PR #${founderMergedPr.number}: expected merged state`);
+assert.equal(founderPr.user?.login, founderMergedPr.author, `OpenClaw PR #${founderMergedPr.number}: author changed`);
+assert.equal(founderPr.head?.sha, founderMergedPr.headSha, `OpenClaw PR #${founderMergedPr.number}: head changed`);
+assert.equal(founderPr.merge_commit_sha, founderMergedPr.mergeCommit, `OpenClaw PR #${founderMergedPr.number}: merge commit changed`);
+
+const publicLedger = JSON.parse(
+  await githubText("repos/arcabotai/arca-openclaw-contributions/contents/data/openclaw-prs.json?ref=main"),
+);
+assert.equal(publicLedger.pullRequests?.length, 9, "OpenClaw public ledger: expected 9 Arca-era PRs");
+assert.ok(publicLedger.authors?.some((identity) => identity.login === "arcabotai"), "OpenClaw public ledger: arcabotai identity missing");
+assert.ok(publicLedger.authors?.some((identity) => identity.login === "felirami" && identity.since === "2026-02-12"), "OpenClaw public ledger: scoped felirami identity missing");
+assert.ok(
+  publicLedger.pullRequests.some((pr) => pr.number === founderMergedPr.number && pr.author === "felirami" && pr.state === "merged"),
+  `OpenClaw public ledger: merged founder PR #${founderMergedPr.number} missing`,
+);
+assert.ok(
+  !publicLedger.pullRequests.some((pr) => [4429, 4432, 4434].includes(pr.number)),
+  "OpenClaw public ledger: pre-Arca personal PRs must stay excluded",
+);
+
 for (const expected of clickClackMergeCredits) {
   const pr = await github(`repos/openclaw/clickclack/pulls/${expected.number}`);
   assert.ok(pr.merged_at, `ClickClack PR #${expected.number}: expected merged state`);
@@ -95,6 +122,7 @@ const hypersnapPr = await github("repos/farcasterorg/hypersnap/pulls/10");
 assert.ok(hypersnapPr.merged_at, "Hypersnap PR #10: expected merged upstream PR");
 
 console.log(
-  `Verified ${licensed.length} licensed repositories, ${prs.length} OpenClaw PR records, ` +
+  `Verified ${licensed.length} licensed repositories, ${prs.length} sampled OpenClaw PR records, ` +
+    `1 merged founder PR, ${publicLedger.pullRequests.length} live ledger records, ` +
     `${clickClackMergeCredits.length} merged ClickClack co-author credits, and 1 upstream review.`,
 );
