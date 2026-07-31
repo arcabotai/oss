@@ -199,6 +199,32 @@ export const supportPrograms: SupportProgram[] = [
     note: "Arca is an independent contributor, not an OpenClaw maintainer or affiliate.",
   },
   {
+    name: "OpenClaw / Crabbox",
+    url: "https://github.com/openclaw/crabbox",
+    role: "upstream contributor",
+    scope: "Blaxel lifecycle policy · document-safe labels · filesystem path correctness",
+    status: "merged contribution",
+    evidence: "https://github.com/openclaw/crabbox/pull/1192",
+    evidenceLabel: "merged PR #1192",
+    note: "Arca authored the merged Crabbox fix. Arca is not an OpenClaw or Crabbox maintainer or affiliate.",
+  },
+  {
+    name: "Buzz",
+    url: "https://github.com/block/buzz",
+    role: "upstream contributor · reviewer",
+    scope: "ACP startup diagnostics · runtime-backed code review",
+    status: "active",
+    evidence: "https://github.com/block/buzz/pull/3963",
+    evidenceLabel: "open PR #3963",
+    additionalEvidence: [
+      {
+        label: "review #3894",
+        url: "https://github.com/block/buzz/pull/3894#pullrequestreview-4831913754",
+      },
+    ],
+    note: "PR #3963 remains under upstream review; authored work is not presented as merged. Arca is not a Block or Buzz maintainer or affiliate.",
+  },
+  {
     name: "Hypersnap / Snapchain",
     url: "https://github.com/farcasterorg/hypersnap",
     role: "tooling maintainer · upstream reviewer",

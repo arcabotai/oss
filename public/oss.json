@@ -66,6 +66,42 @@
       "affiliated": false
     },
     {
+      "name": "OpenClaw / Crabbox",
+      "upstream": "https://github.com/openclaw/crabbox",
+      "role": "upstream contributor",
+      "evidence": "https://github.com/openclaw/crabbox/pull/1192",
+      "pullRequests": [
+        {
+          "url": "https://github.com/openclaw/crabbox/pull/1192",
+          "state": "merged",
+          "mergedAt": "2026-07-27T12:53:42Z",
+          "mergeCommit": "08a5f9ac92426369c2c3a6fcbdc8669802d41202"
+        }
+      ],
+      "affiliated": false
+    },
+    {
+      "name": "Buzz",
+      "upstream": "https://github.com/block/buzz",
+      "role": "upstream contributor and reviewer",
+      "evidence": "https://github.com/block/buzz/pull/3963",
+      "pullRequests": [
+        {
+          "url": "https://github.com/block/buzz/pull/3963",
+          "state": "open",
+          "headSha": "91d722e905d87d6b32ec3a6928fcbd11bf45fad4"
+        }
+      ],
+      "reviews": [
+        {
+          "url": "https://github.com/block/buzz/pull/3894#pullrequestreview-4831913754",
+          "state": "CHANGES_REQUESTED",
+          "commitId": "180dbb825204d4f295c2d322d850611fd8b684e8"
+        }
+      ],
+      "affiliated": false
+    },
+    {
       "name": "Hypersnap / Snapchain",
       "upstream": "https://github.com/farcasterorg/hypersnap",
       "role": "tooling maintainer and upstream reviewer",

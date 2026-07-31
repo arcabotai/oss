@@ -1,8 +1,98 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-19T03:55:08Z",
+  "generatedAt": "2026-07-31T21:41:35Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:review:block/buzz:3894:4831913754",
+      "type": "review_submitted",
+      "project": "Buzz",
+      "repository": "block/buzz",
+      "number": 3894,
+      "title": "fix(media): serve Range requests on Cloudflare R2",
+      "summary": "Submitted changes requested review",
+      "url": "https://github.com/block/buzz/pull/3894#pullrequestreview-4831913754",
+      "occurredAt": "2026-07-31T20:19:35Z",
+      "actor": "arcabotai",
+      "role": "reviewer",
+      "state": "changes_requested",
+      "evidence": {
+        "reviewId": 4831913754,
+        "commitId": "180dbb825204d4f295c2d322d850611fd8b684e8"
+      }
+    },
+    {
+      "id": "github:pr:block/buzz:3963:open",
+      "type": "upstream_pr_state",
+      "project": "buzz",
+      "repository": "block/buzz",
+      "number": 3963,
+      "title": "fix(acp): clarify pool worker startup errors",
+      "summary": "Opened upstream",
+      "url": "https://github.com/block/buzz/pull/3963",
+      "occurredAt": "2026-07-31T17:34:55Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "91d722e905d87d6b32ec3a6928fcbd11bf45fad4",
+        "mergeCommit": "20ea4667c28ab5af9c410d7c67c6c12274087694"
+      }
+    },
+    {
+      "id": "github:pr:NousResearch/hermes-agent:74779:open",
+      "type": "upstream_pr_state",
+      "project": "hermes-agent",
+      "repository": "NousResearch/hermes-agent",
+      "number": 74779,
+      "title": "fix(desktop): map SSH profiles to remote profiles",
+      "summary": "Opened upstream",
+      "url": "https://github.com/NousResearch/hermes-agent/pull/74779",
+      "occurredAt": "2026-07-30T10:53:33Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "dce3e7facbffc6fa8655f527de3b63f1b1839f45",
+        "mergeCommit": "1dfd3f2ca26fdb31ea2d65b3f0a9de0f412feb2a"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/crabbox:1192:merged",
+      "type": "upstream_pr_state",
+      "project": "crabbox",
+      "repository": "openclaw/crabbox",
+      "number": 1192,
+      "title": "fix(blaxel): lifecycle policies, full-document label updates, absolute FS paths",
+      "summary": "Merged upstream",
+      "url": "https://github.com/openclaw/crabbox/pull/1192",
+      "occurredAt": "2026-07-27T12:53:42Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "013974334b62a05b917fd605212175007d97412b",
+        "mergeCommit": "08a5f9ac92426369c2c3a6fcbdc8669802d41202"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:107963:closed",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 107963,
+      "title": "fix(update): reject npm redacted global root paths",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/openclaw/openclaw/pull/107963",
+      "occurredAt": "2026-07-19T10:05:11Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "a4e3041b8660fadcd1615e5d15b30d30e859e666",
+        "mergeCommit": null
+      }
+    },
     {
       "id": "github:pr:openclaw/openclaw:111117:open",
       "type": "upstream_pr_state",
@@ -17,8 +107,8 @@
       "role": "author",
       "state": "open",
       "evidence": {
-        "headSha": "256542f28e268f20bb6257ec540f8eee1974bff4",
-        "mergeCommit": "6909b77cdc6301b5c0778789a5ba3df59674a061"
+        "headSha": "c6e26379d6a68403bbd98025be91284436549155",
+        "mergeCommit": null
       }
     },
     {
@@ -233,7 +323,7 @@
       "role": "author",
       "state": "open",
       "evidence": {
-        "headSha": "1d7a7be25af3f4a4ef9ce2aa9c07699508cce405",
+        "headSha": "be8ca9eefbf9317beaa8f7b061310e30a11c011e",
         "mergeCommit": null
       }
     },

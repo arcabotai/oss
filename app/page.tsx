@@ -64,26 +64,26 @@ function publicBoundary(pr: Awaited<ReturnType<typeof getOpenClawLedger>>["pullR
 
 export default async function Home() {
   const ledger = await getOpenClawLedger();
-  const merged = ledger.pullRequests.filter((pr) => pr.state === "merged").length;
   const clickClackMerged = clickClackMergeCredits.length;
-  const latestReceipt = [
-    ...ledger.pullRequests
-      .filter((pr) => pr.mergedAt !== null)
-      .map((pr) => ({
-        label: `${pr.author ? `@${pr.author} · ` : ""}OpenClaw #${pr.number}`,
-        url: pr.url,
-        at: pr.mergedAt as string,
-      })),
-    ...clickClackMergeCredits.map((credit) => ({
-      label: `${credit.project} #${credit.number}`,
-      url: credit.url,
-      at: credit.mergedAt,
-    })),
-  ].sort((a, b) => Date.parse(b.at) - Date.parse(a.at))[0];
+  const feed = getActivityFeed();
+  const mergedUpstreamPrEvents = feed.events.filter(
+    (event) => event.type === "upstream_pr_state" && event.state === "merged",
+  );
+  const latestReceiptEvent = feed.events.find(
+    (event) =>
+      event.state === "merged" &&
+      (event.type === "upstream_pr_state" || event.type === "upstream_credit"),
+  );
+  const latestReceipt = latestReceiptEvent
+    ? {
+        label: `@${latestReceiptEvent.actor} · ${latestReceiptEvent.repository} #${latestReceiptEvent.number}`,
+        url: latestReceiptEvent.url,
+        at: latestReceiptEvent.occurredAt,
+      }
+    : null;
   const receiptDate = latestReceipt
     ? new Date(latestReceipt.at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
     : null;
-  const feed = getActivityFeed();
   const movementEvents = feed.events.slice(0, MOVEMENT_LIMIT);
   const feedGenerated =
     feed.generatedAt && !Number.isNaN(Date.parse(feed.generatedAt))
@@ -142,7 +142,7 @@ export default async function Home() {
       <section className="measure-strip" aria-label="Current public record summary">
         <div><strong>{ownedProjects.length}</strong><span>licensed Arca projects</span></div>
         <div><strong>{ledger.pullRequests.length}</strong><span>Arca-associated OpenClaw PRs</span></div>
-        <div><strong>{merged}</strong><span>merged OpenClaw PRs</span></div>
+        <div><strong>{mergedUpstreamPrEvents.length}</strong><span>merged upstream PRs</span></div>
         <div><strong>{clickClackMerged}</strong><span>merged ClickClack co-credits</span></div>
         <div className="measure-source">
           <span>source</span>

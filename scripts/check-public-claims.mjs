@@ -16,6 +16,23 @@ const founderMergedPr = {
   headSha: "e35ddb3ce365c07419365d5b799bbb45b65ac38e",
   mergeCommit: "c1191cdf2fbbea4cc9797d7f110a4e0acf50d3c7",
 };
+const crabboxMergedPr = {
+  number: 1192,
+  author: "arcabotai",
+  headSha: "013974334b62a05b917fd605212175007d97412b",
+  mergeCommit: "08a5f9ac92426369c2c3a6fcbdc8669802d41202",
+};
+const buzzOpenPr = {
+  number: 3963,
+  author: "arcabotai",
+  headSha: "91d722e905d87d6b32ec3a6928fcbd11bf45fad4",
+};
+const buzzReview = {
+  pullRequest: 3894,
+  id: 4831913754,
+  state: "CHANGES_REQUESTED",
+  commitId: "180dbb825204d4f295c2d322d850611fd8b684e8",
+};
 const clickClackMergeCredits = [
   {
     number: 91,
@@ -74,10 +91,28 @@ assert.equal(founderPr.user?.login, founderMergedPr.author, `OpenClaw PR #${foun
 assert.equal(founderPr.head?.sha, founderMergedPr.headSha, `OpenClaw PR #${founderMergedPr.number}: head changed`);
 assert.equal(founderPr.merge_commit_sha, founderMergedPr.mergeCommit, `OpenClaw PR #${founderMergedPr.number}: merge commit changed`);
 
+const crabboxPr = await github(`repos/openclaw/crabbox/pulls/${crabboxMergedPr.number}`);
+assert.ok(crabboxPr.merged_at, `Crabbox PR #${crabboxMergedPr.number}: expected merged state`);
+assert.equal(crabboxPr.user?.login, crabboxMergedPr.author, `Crabbox PR #${crabboxMergedPr.number}: author changed`);
+assert.equal(crabboxPr.head?.sha, crabboxMergedPr.headSha, `Crabbox PR #${crabboxMergedPr.number}: head changed`);
+assert.equal(crabboxPr.merge_commit_sha, crabboxMergedPr.mergeCommit, `Crabbox PR #${crabboxMergedPr.number}: merge commit changed`);
+
+const buzzPr = await github(`repos/block/buzz/pulls/${buzzOpenPr.number}`);
+assert.equal(buzzPr.state, "open", `Buzz PR #${buzzOpenPr.number}: expected open state`);
+assert.equal(buzzPr.user?.login, buzzOpenPr.author, `Buzz PR #${buzzOpenPr.number}: author changed`);
+assert.equal(buzzPr.head?.sha, buzzOpenPr.headSha, `Buzz PR #${buzzOpenPr.number}: head changed`);
+
+const buzzReviews = await github(`repos/block/buzz/pulls/${buzzReview.pullRequest}/reviews`);
+const verifiedBuzzReview = buzzReviews.find((item) => item.id === buzzReview.id);
+assert.ok(verifiedBuzzReview, `Buzz PR #${buzzReview.pullRequest}: Arca review not found`);
+assert.equal(verifiedBuzzReview.user?.login, "arcabotai", `Buzz review #${buzzReview.id}: reviewer changed`);
+assert.equal(verifiedBuzzReview.state, buzzReview.state, `Buzz review #${buzzReview.id}: state changed`);
+assert.equal(verifiedBuzzReview.commit_id, buzzReview.commitId, `Buzz review #${buzzReview.id}: reviewed commit changed`);
+
 const publicLedger = JSON.parse(
   await githubText("repos/arcabotai/arca-openclaw-contributions/contents/data/openclaw-prs.json?ref=main"),
 );
-assert.equal(publicLedger.pullRequests?.length, 9, "OpenClaw public ledger: expected 9 Arca-era PRs");
+assert.ok(publicLedger.pullRequests?.length >= 9, "OpenClaw public ledger: expected at least 9 Arca-era PRs");
 assert.ok(publicLedger.authors?.some((identity) => identity.login === "arcabotai"), "OpenClaw public ledger: arcabotai identity missing");
 assert.ok(publicLedger.authors?.some((identity) => identity.login === "felirami" && identity.since === "2026-02-12"), "OpenClaw public ledger: scoped felirami identity missing");
 assert.ok(
@@ -162,6 +197,18 @@ assert.ok(
   ),
   "Public activity: merged founder OpenClaw receipt missing",
 );
+assert.ok(
+  activity.events.some(
+    (event) => event.repository === "openclaw/crabbox" && event.number === 1192 && event.actor === "arcabotai" && event.state === "merged",
+  ),
+  "Public activity: merged Crabbox receipt missing",
+);
+assert.ok(
+  activity.events.some(
+    (event) => event.repository === "block/buzz" && event.number === 3963 && event.actor === "arcabotai" && event.state === "open",
+  ),
+  "Public activity: open Buzz PR receipt missing",
+);
 assert.deepEqual(
   activity.events
     .filter((event) => event.type === "upstream_credit" && event.repository === "openclaw/clickclack")
@@ -179,6 +226,6 @@ assert.ok(
 
 console.log(
   `Verified ${licensed.length} licensed repositories, ${prs.length} sampled OpenClaw PR records, ` +
-    `1 merged founder PR, ${publicLedger.pullRequests.length} live ledger records, ` +
-    `${activity.events.length} public activity events, ${clickClackMergeCredits.length} merged ClickClack co-author credits, and 1 upstream review.`,
+    `1 merged founder PR, 1 merged Crabbox PR, 1 open Buzz PR, ${publicLedger.pullRequests.length} live ledger records, ` +
+    `${activity.events.length} public activity events, ${clickClackMergeCredits.length} merged ClickClack co-author credits, and 2 upstream reviews.`,
 );
