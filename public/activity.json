@@ -1,8 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-01T13:55:31Z",
+  "generatedAt": "2026-08-02T03:53:20Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:NousResearch/hermes-agent:74779:closed",
+      "type": "upstream_pr_state",
+      "project": "hermes-agent",
+      "repository": "NousResearch/hermes-agent",
+      "number": 74779,
+      "title": "fix(desktop): map SSH profiles to remote profiles",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/NousResearch/hermes-agent/pull/74779",
+      "occurredAt": "2026-08-01T21:30:36Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "521d48bd844e7c8469f13117745f44031755e7d1",
+        "mergeCommit": "33febe913041f5bacd2f79fbdcb02aa8dda70c2c"
+      }
+    },
     {
       "id": "github:review:block/buzz:3894:4831913754",
       "type": "review_submitted",
@@ -36,7 +54,7 @@
       "state": "open",
       "evidence": {
         "headSha": "91d722e905d87d6b32ec3a6928fcbd11bf45fad4",
-        "mergeCommit": "88fcd9dd2d4d16af93d989a1d38462339fed6e7c"
+        "mergeCommit": "4e4716eb56b91765ff74c723198e2f890eb2b3bc"
       }
     },
     {
