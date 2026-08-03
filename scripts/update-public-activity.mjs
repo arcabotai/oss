@@ -121,7 +121,10 @@ function parsePullRequestUrl(url) {
 
 async function collectPullRequests(index, repoCache) {
   const identities = index.contributionIdentities || [];
-  const ownedLogins = new Set(identities.map((identity) => identity.login.toLowerCase()));
+  const ownedLogins = new Set([
+    ...identities.map((identity) => identity.login.toLowerCase()),
+    ...(index.ownedRepositoryOwners || []).map((login) => login.toLowerCase()),
+  ]);
   const candidates = new Map();
 
   for (const identity of identities) {
@@ -172,7 +175,10 @@ async function collectCredits(index) {
       repository,
       number,
       title: details.title,
-      summary: "Merged with public Arca co-author credit",
+      summary:
+        credit.credit === "commit author"
+          ? "Merged upstream with Cad authorship preserved"
+          : "Merged with public Arca co-author credit",
       url: credit.url,
       occurredAt: credit.mergedAt,
       actor: "arcabotai",
@@ -180,6 +186,7 @@ async function collectCredits(index) {
       state: "merged",
       evidence: {
         implementationCommit: credit.implementationCommit,
+        additionalImplementationCommits: credit.additionalImplementationCommits || [],
         mergeCommit: credit.mergeCommit,
       },
     });

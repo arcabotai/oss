@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-03T03:54:41Z",
+  "generatedAt": "2026-08-03T19:00:38Z",
   "cadence": "every 6 hours",
   "events": [
     {
@@ -19,6 +19,30 @@
       "evidence": {
         "headSha": "521d48bd844e7c8469f13117745f44031755e7d1",
         "mergeCommit": "33febe913041f5bacd2f79fbdcb02aa8dda70c2c"
+      }
+    },
+    {
+      "id": "github:credit:NousResearch/hermes-agent:76400:commit author",
+      "type": "upstream_credit",
+      "project": "Hermes Agent",
+      "repository": "NousResearch/hermes-agent",
+      "number": 76400,
+      "title": "fix(desktop): map SSH profiles to remote profiles (+ token-root anchor for non-default profiles)",
+      "summary": "Merged upstream with Cad authorship preserved",
+      "url": "https://github.com/NousResearch/hermes-agent/pull/76400",
+      "occurredAt": "2026-08-01T21:30:17Z",
+      "actor": "arcabotai",
+      "role": "commit author",
+      "state": "merged",
+      "evidence": {
+        "implementationCommit": "e1c1af9378d441e89a0e3cf4bd6979565168ef42",
+        "additionalImplementationCommits": [
+          "84838ec21ba4b049d6ca66b1c1bf7f2fb5f42300",
+          "e2095dd77ea4211a2c4ad75c9069193acca2a155",
+          "ffd9a9e78fbf135e6029c921e67b53460a55044d",
+          "c444915f21d3a85220adbdb64069626c7281b8d9"
+        ],
+        "mergeCommit": "8b8ebc26bb5a433c1975615c7c8e4a0182d94f36"
       }
     },
     {
@@ -54,7 +78,7 @@
       "state": "open",
       "evidence": {
         "headSha": "91d722e905d87d6b32ec3a6928fcbd11bf45fad4",
-        "mergeCommit": "c5867b78b70e9e4e6a3fb4ea5f80ff2e734a9ed8"
+        "mergeCommit": "a9c0489454b2f63f32630a2268730c8fb391fc1f"
       }
     },
     {
@@ -144,6 +168,7 @@
       "state": "merged",
       "evidence": {
         "implementationCommit": "068ce38bf1e93e8caec8090dcbc573fb4a48bf45",
+        "additionalImplementationCommits": [],
         "mergeCommit": "064a46fc73e11dff15cc2af03e631a28b42ddef1"
       }
     },
@@ -162,6 +187,7 @@
       "state": "merged",
       "evidence": {
         "implementationCommit": "79d96964549d020143d50cbc4794ad460bf1ed87",
+        "additionalImplementationCommits": [],
         "mergeCommit": "3e1d2841a314c139c1f053605dbb6d94d9e81a07"
       }
     },

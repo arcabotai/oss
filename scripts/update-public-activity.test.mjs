@@ -25,18 +25,20 @@ const pull = {
 test("search query excludes owned repository namespaces before pagination", () => {
   const query = buildPullRequestQuery(
     { login: "felirami", since: "2026-02-12" },
-    new Set(["arcabotai", "felirami"]),
+    new Set(["arcabotai", "felirami", "arcacomputer"]),
   );
   assert.match(query, /author:felirami/);
   assert.match(query, /created:>=2026-02-12/);
   assert.match(query, /-user:arcabotai/);
   assert.match(query, /-user:felirami/);
+  assert.match(query, /-user:arcacomputer/);
 });
 
 test("internal repositories are excluded by owner", () => {
-  const owners = new Set(["arcabotai", "felirami"]);
+  const owners = new Set(["arcabotai", "felirami", "arcacomputer"]);
   assert.equal(isInternalRepository("arcabotai/oss", owners), true);
   assert.equal(isInternalRepository("felirami/castaway", owners), true);
+  assert.equal(isInternalRepository("arcacomputer/hypersnapweb", owners), true);
   assert.equal(isInternalRepository("openclaw/openclaw", owners), false);
 });
 

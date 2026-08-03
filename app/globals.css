@@ -164,7 +164,11 @@ a:focus-visible, button:focus-visible, .hero-copy:focus-visible { outline: 2px s
 .support-record { background: var(--ink); padding: 28px; min-height: 330px; display: flex; flex-direction: column; }
 .record-topline { display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 9px; }
 .record-topline span:last-child { margin-left: auto; }
-.support-record h3 { font-size: 30px; letter-spacing: -.035em; margin: 48px 0 6px; }
+.record-brand { width: 64px; height: 64px; margin-top: 30px; display: grid; place-items: center; border: 1px solid var(--line); background: rgba(255,255,255,.025); overflow: hidden; }
+.record-brand img { width: 52px; height: 52px; object-fit: contain; }
+.record-brand-wide { width: 122px; }
+.record-brand-wide img { width: 108px; height: 48px; }
+.support-record h3 { font-size: 30px; letter-spacing: -.035em; margin: 18px 0 6px; }
 .support-record h3 a:hover { color: var(--teal); }
 .record-role { color: var(--bronze); text-transform: uppercase; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
 .support-record > p:not(.record-role) { color: #c2c9c6; }

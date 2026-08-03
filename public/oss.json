@@ -24,6 +24,11 @@
       "scope": "activity since 2026-02-12"
     }
   ],
+  "ownedRepositoryOwners": [
+    "arcabotai",
+    "felirami",
+    "arcacomputer"
+  ],
   "projects": [
     {
       "name": "A3Stack",
@@ -58,6 +63,18 @@
     }
   ],
   "supportedProjects": [
+    {
+      "name": "Hermes Agent",
+      "upstream": "https://github.com/NousResearch/hermes-agent",
+      "role": "upstream contributor",
+      "evidence": "https://github.com/NousResearch/hermes-agent/pull/76400",
+      "originPullRequest": "https://github.com/NousResearch/hermes-agent/pull/74779",
+      "mergedCredits": [
+        "https://github.com/NousResearch/hermes-agent/pull/76400"
+      ],
+      "creditBoundary": "Maintainer PR #76400 cherry-picked the origin PR with authorship preserved. Five merged commits are authored by Cad from Arca; the contributor map credits @arcabotai.",
+      "affiliated": false
+    },
     {
       "name": "OpenClaw",
       "upstream": "https://github.com/openclaw/openclaw",
@@ -129,6 +146,22 @@
     }
   ],
   "mergedUpstreamCredits": [
+    {
+      "project": "Hermes Agent",
+      "pullRequest": 76400,
+      "url": "https://github.com/NousResearch/hermes-agent/pull/76400",
+      "originPullRequest": "https://github.com/NousResearch/hermes-agent/pull/74779",
+      "mergedAt": "2026-08-01T21:30:17Z",
+      "implementationCommit": "e1c1af9378d441e89a0e3cf4bd6979565168ef42",
+      "additionalImplementationCommits": [
+        "84838ec21ba4b049d6ca66b1c1bf7f2fb5f42300",
+        "e2095dd77ea4211a2c4ad75c9069193acca2a155",
+        "ffd9a9e78fbf135e6029c921e67b53460a55044d",
+        "c444915f21d3a85220adbdb64069626c7281b8d9"
+      ],
+      "mergeCommit": "8b8ebc26bb5a433c1975615c7c8e4a0182d94f36",
+      "credit": "commit author"
+    },
     {
       "project": "ClickClack",
       "pullRequest": 91,

@@ -1,4 +1,12 @@
-import { clickClackMergeCredits, getActivityFeed, getOpenClawLedger, ownedProjects, supportPrograms } from "@/lib/data";
+import Image from "next/image";
+import {
+  clickClackMergeCredits,
+  getActivityFeed,
+  getOpenClawLedger,
+  hermesMergeCredits,
+  ownedProjects,
+  supportPrograms,
+} from "@/lib/data";
 
 const MOVEMENT_LIMIT = 8;
 
@@ -28,7 +36,8 @@ const STATE_CLASSES: Record<string, string> = {
   prerelease: "state-review",
 };
 
-function kindLabel(type: string) {
+function kindLabel(type: string, role?: string) {
+  if (type === "upstream_credit" && role === "commit author") return "commit authorship";
   return KIND_LABELS[type] ?? type.replace(/_/g, " ");
 }
 
@@ -65,6 +74,7 @@ function publicBoundary(pr: Awaited<ReturnType<typeof getOpenClawLedger>>["pullR
 export default async function Home() {
   const ledger = await getOpenClawLedger();
   const clickClackMerged = clickClackMergeCredits.length;
+  const hermesMerged = hermesMergeCredits.length;
   const feed = getActivityFeed();
   const mergedUpstreamPrEvents = feed.events.filter(
     (event) => event.type === "upstream_pr_state" && event.state === "merged",
@@ -133,7 +143,7 @@ export default async function Home() {
             <div className="map-node map-a3"><small>maintain</small><strong>A3Stack</strong><span>MIT</span></div>
             <div className="map-node map-hyper"><small>maintain</small><strong>Hypersnap</strong><span>MIT</span></div>
             <div className="map-node map-claw"><small>support</small><strong>OpenClaw</strong><span>{ledger.pullRequests.length} PRs</span></div>
-            <div className="map-node map-proof"><small>co-author</small><strong>ClickClack</strong><span>{clickClackMerged} merged</span></div>
+            <div className="map-node map-proof"><small>accepted</small><strong>Hermes + ClickClack</strong><span>{hermesMerged + clickClackMerged} receipts</span></div>
           </div>
           <div className="map-footer"><span>licensed code</span><span>upstream work</span><span>public proof</span></div>
         </div>
@@ -143,7 +153,7 @@ export default async function Home() {
         <div><strong>{ownedProjects.length}</strong><span>licensed Arca projects</span></div>
         <div><strong>{ledger.pullRequests.length}</strong><span>Arca-associated OpenClaw PRs</span></div>
         <div><strong>{mergedUpstreamPrEvents.length}</strong><span>merged upstream PRs</span></div>
-        <div><strong>{clickClackMerged}</strong><span>merged ClickClack co-credits</span></div>
+        <div><strong>{clickClackMerged + hermesMerged}</strong><span>merged commit-credit receipts</span></div>
         <div className="measure-source">
           <span>source</span>
           <a href="#support">public receipts <Arrow /></a>
@@ -160,7 +170,7 @@ export default async function Home() {
           <p className="section-number">01 / MOVEMENT</p>
           <h2 id="movement-title">Recent movement.</h2>
           <div className="movement-aside">
-            <p>Merged, closed, open, review, and co-author credit stay distinct here. Every row links its canonical public evidence.</p>
+            <p>Merged, closed, open, review, and authorship credit stay distinct here. Every row links its canonical public evidence.</p>
             <p className="movement-feedmeta">
               <a href="/activity.json">/activity.json</a>
               {" · "}
@@ -181,7 +191,7 @@ export default async function Home() {
                 <time className="movement-time" dateTime={event.occurredAt}>{movementDay(event.occurredAt)}</time>
                 <div className="movement-main">
                   <div className="movement-chips">
-                    <span className={`kind ${KIND_CLASSES[event.type] ?? "kind-release"}`}>{kindLabel(event.type)}</span>
+                    <span className={`kind ${KIND_CLASSES[event.type] ?? "kind-release"}`}>{kindLabel(event.type, event.role)}</span>
                     <span className={`state ${stateClass(event.state)}`}>{stateLabel(event.state)}</span>
                   </div>
                   <h3>{event.title}</h3>
@@ -239,6 +249,9 @@ export default async function Home() {
           {supportPrograms.map((program) => (
             <article className="support-record" key={program.name}>
               <div className="record-topline"><span className="signal-dot" /><span>{program.status}</span><span>independent</span></div>
+              <div className={`record-brand ${program.logoStyle === "wide" ? "record-brand-wide" : ""}`}>
+                <Image src={program.logo} alt={`${program.name} logo`} width={96} height={96} />
+              </div>
               <h3><a href={program.url}>{program.name} <Arrow /></a></h3>
               <p className="record-role">{program.role}</p>
               <p>{program.scope}</p>

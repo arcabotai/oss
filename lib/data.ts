@@ -44,6 +44,8 @@ export type OwnedProject = {
 export type SupportProgram = {
   name: string;
   url: string;
+  logo: string;
+  logoStyle?: "mark" | "wide";
   role: string;
   scope: string;
   status: string;
@@ -63,9 +65,10 @@ export type UpstreamMergeCredit = {
   url: string;
   mergedAt: string;
   implementationCommit: string;
+  additionalImplementationCommits?: string[];
   mergeCommit: string;
   originUrl: string;
-  credit: "co-author";
+  credit: "co-author" | "commit author";
 };
 
 export type ContributionIdentity = {
@@ -187,10 +190,48 @@ export const clickClackMergeCredits: UpstreamMergeCredit[] = [
   },
 ];
 
+export const hermesMergeCredits: UpstreamMergeCredit[] = [
+  {
+    project: "Hermes Agent",
+    number: 76400,
+    title: "fix(desktop): map SSH profiles to remote profiles",
+    url: "https://github.com/NousResearch/hermes-agent/pull/76400",
+    mergedAt: "2026-08-01T21:30:17Z",
+    implementationCommit: "e1c1af9378d441e89a0e3cf4bd6979565168ef42",
+    additionalImplementationCommits: [
+      "84838ec21ba4b049d6ca66b1c1bf7f2fb5f42300",
+      "e2095dd77ea4211a2c4ad75c9069193acca2a155",
+      "ffd9a9e78fbf135e6029c921e67b53460a55044d",
+      "c444915f21d3a85220adbdb64069626c7281b8d9",
+    ],
+    mergeCommit: "8b8ebc26bb5a433c1975615c7c8e4a0182d94f36",
+    originUrl: "https://github.com/NousResearch/hermes-agent/pull/74779",
+    credit: "commit author",
+  },
+];
+
 export const supportPrograms: SupportProgram[] = [
+  {
+    name: "Hermes Agent",
+    url: "https://github.com/NousResearch/hermes-agent",
+    logo: "/upstream/hermes.png",
+    role: "upstream contributor",
+    scope: "remote profile mapping · SSH token boundaries · Unix and Windows lifecycle tests",
+    status: "merged authorship",
+    evidence: "https://github.com/NousResearch/hermes-agent/pull/76400",
+    evidenceLabel: "merged PR #76400",
+    additionalEvidence: [
+      {
+        label: "origin PR #74779",
+        url: "https://github.com/NousResearch/hermes-agent/pull/74779",
+      },
+    ],
+    note: "Hermes merged five Cad-authored commits through maintainer PR #76400, with @arcabotai mapped in the contributor record. Arca is an independent contributor, not a Nous Research maintainer or affiliate.",
+  },
   {
     name: "OpenClaw",
     url: "https://github.com/openclaw/openclaw",
+    logo: "/upstream/openclaw.svg",
     role: "upstream contributor",
     scope: "bug reports · source diagnosis · runtime proof · pull requests",
     status: "active",
@@ -201,6 +242,8 @@ export const supportPrograms: SupportProgram[] = [
   {
     name: "OpenClaw / Crabbox",
     url: "https://github.com/openclaw/crabbox",
+    logo: "/upstream/crabbox.jpg",
+    logoStyle: "wide",
     role: "upstream contributor",
     scope: "Blaxel lifecycle policy · document-safe labels · filesystem path correctness",
     status: "merged contribution",
@@ -211,6 +254,7 @@ export const supportPrograms: SupportProgram[] = [
   {
     name: "Buzz",
     url: "https://github.com/block/buzz",
+    logo: "/upstream/buzz.png",
     role: "upstream contributor · reviewer",
     scope: "ACP startup diagnostics · runtime-backed code review",
     status: "active",
@@ -227,6 +271,8 @@ export const supportPrograms: SupportProgram[] = [
   {
     name: "Hypersnap / Snapchain",
     url: "https://github.com/farcasterorg/hypersnap",
+    logo: "/upstream/hypersnap.png",
+    logoStyle: "wide",
     role: "tooling maintainer · upstream reviewer",
     scope: "operator CLI · diagnostics · safe repair · requested-changes review",
     status: "active",
@@ -243,6 +289,7 @@ export const supportPrograms: SupportProgram[] = [
   {
     name: "ClickClack",
     url: "https://github.com/openclaw/clickclack",
+    logo: "/upstream/clickclack.png",
     role: "upstream co-contributor",
     scope: "integration history helpers · typed agent progress SDK",
     status: "merged credit",

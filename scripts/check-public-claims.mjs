@@ -47,6 +47,18 @@ const clickClackMergeCredits = [
     changelogText: "Added typed agent-progress SDK payloads while preserving workspace-wide presence events without channel or DM targets. Thanks @arcabotai",
   },
 ];
+const hermesMergeCredit = {
+  number: 76400,
+  originPullRequest: 74779,
+  mergeCommit: "8b8ebc26bb5a433c1975615c7c8e4a0182d94f36",
+  implementationCommits: [
+    "e1c1af9378d441e89a0e3cf4bd6979565168ef42",
+    "84838ec21ba4b049d6ca66b1c1bf7f2fb5f42300",
+    "e2095dd77ea4211a2c4ad75c9069193acca2a155",
+    "ffd9a9e78fbf135e6029c921e67b53460a55044d",
+    "c444915f21d3a85220adbdb64069626c7281b8d9",
+  ],
+};
 const headers = {
   Accept: "application/vnd.github+json",
   "User-Agent": "arca-oss-claim-validator",
@@ -139,6 +151,26 @@ for (const expected of clickClackMergeCredits) {
   );
 }
 
+const hermesPr = await github(`repos/NousResearch/hermes-agent/pulls/${hermesMergeCredit.number}`);
+assert.ok(hermesPr.merged_at, `Hermes Agent PR #${hermesMergeCredit.number}: expected merged state`);
+assert.equal(
+  hermesPr.merge_commit_sha,
+  hermesMergeCredit.mergeCommit,
+  `Hermes Agent PR #${hermesMergeCredit.number}: merge commit changed`,
+);
+assert.equal(hermesPr.user?.login, "teknium1", `Hermes Agent PR #${hermesMergeCredit.number}: expected maintainer-authored merge PR`);
+assert.ok(
+  hermesPr.body?.includes(`#${hermesMergeCredit.originPullRequest}`) &&
+    hermesPr.body?.includes("@arcabotai") &&
+    hermesPr.body?.includes("authorship preserved"),
+  `Hermes Agent PR #${hermesMergeCredit.number}: origin or preserved-authorship credit missing`,
+);
+for (const sha of hermesMergeCredit.implementationCommits) {
+  const commit = await github(`repos/NousResearch/hermes-agent/commits/${sha}`);
+  assert.equal(commit.commit?.author?.name, "Cad from Arca", `Hermes Agent commit ${sha}: Cad author name missing`);
+  assert.equal(commit.commit?.author?.email, "cad@arcabot.ai", `Hermes Agent commit ${sha}: Cad author email missing`);
+}
+
 for (const expected of clickClackMergeCredits) {
   const clickClackChangelog = await githubText(
     `repos/openclaw/clickclack/contents/CHANGELOG.md?ref=${expected.implementationCommit}`,
@@ -189,6 +221,7 @@ for (const [index, event] of activity.events.entries()) {
   if (event.type === "upstream_pr_state") {
     assert.ok(!event.repository.startsWith("arcabotai/"), `Public activity ${event.id}: internal arcabotai PR leaked upstream`);
     assert.ok(!event.repository.startsWith("felirami/"), `Public activity ${event.id}: internal felirami PR leaked upstream`);
+    assert.ok(!event.repository.startsWith("arcacomputer/"), `Public activity ${event.id}: internal arcacomputer PR leaked upstream`);
   }
 }
 assert.ok(
@@ -219,13 +252,17 @@ assert.deepEqual(
 );
 assert.ok(
   activity.events.some(
-    (event) => event.type === "review_submitted" && event.repository === "farcasterorg/hypersnap" && event.number === 10,
+    (event) =>
+      event.type === "upstream_credit" &&
+      event.repository === "NousResearch/hermes-agent" &&
+      event.number === hermesMergeCredit.number &&
+      event.state === "merged",
   ),
-  "Public activity: Hypersnap review receipt missing",
+  "Public activity: Hermes Agent merged authorship receipt missing",
 );
-
 console.log(
   `Verified ${licensed.length} licensed repositories, ${prs.length} sampled OpenClaw PR records, ` +
     `1 merged founder PR, 1 merged Crabbox PR, 1 open Buzz PR, ${publicLedger.pullRequests.length} live ledger records, ` +
-    `${activity.events.length} public activity events, ${clickClackMergeCredits.length} merged ClickClack co-author credits, and 2 upstream reviews.`,
+    `${activity.events.length} public activity events, ${clickClackMergeCredits.length} merged ClickClack co-author credits, ` +
+    `1 merged Hermes Agent authorship receipt, and 2 upstream reviews.`,
 );
