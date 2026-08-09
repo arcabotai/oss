@@ -1,8 +1,80 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-09T07:16:23Z",
+  "generatedAt": "2026-08-09T19:00:44Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:elizaOS/eliza:18191:open",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18191,
+      "title": "fix(cloud): rotate the managed-launch agent key on the launch transaction",
+      "summary": "Opened upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18191",
+      "occurredAt": "2026-08-09T17:52:43Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "c0288eee21edd14b1411e29e4c8f848ed4047c89",
+        "mergeCommit": "6e6829d99ee91d97d34f056657b0e0bceca23ccd"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18186:open",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18186,
+      "title": "fix(cloud): pin staging onboarding host vars so staging stops resolving production",
+      "summary": "Opened upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18186",
+      "occurredAt": "2026-08-09T16:55:39Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "05aae308ec143009b6414ba12adb8f2f7fd452bb",
+        "mergeCommit": "0c3a47c2917adb170b4f63756ae23fa44d03c2ba"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18181:open",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18181,
+      "title": "fix(agent): stop asserting expiry on unattributed pairing rejections; env-correct console link",
+      "summary": "Opened upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18181",
+      "occurredAt": "2026-08-09T16:02:30Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "ff12b6e9524ce492c47b52739eca8a8677471902",
+        "mergeCommit": "da564b0b40a62f3c498251a1af36680846d63914"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18178:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18178,
+      "title": "fix(ui): app hosts redeem pairing in-process instead of dead-ending on /pair",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18178",
+      "occurredAt": "2026-08-09T15:27:28Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "393926a230b3d9ed7f7e5e4d4ef3dc6f24bc1eca",
+        "mergeCommit": "54a20d2a5d5e09b73f31992227b81da114578cf6"
+      }
+    },
     {
       "id": "github:pr:elizaOS/eliza:18101:merged",
       "type": "upstream_pr_state",
