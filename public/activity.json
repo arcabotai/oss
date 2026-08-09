@@ -1,8 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-08T02:21:32Z",
+  "generatedAt": "2026-08-09T02:29:03Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:elizaOS/eliza:18101:open",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18101,
+      "title": "fix(cloud): secure Telegram browser onboarding continuation",
+      "summary": "Opened upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18101",
+      "occurredAt": "2026-08-09T00:34:40Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "80de270a704ae0234e6e03dfb7ed0f7b6d22f3f4",
+        "mergeCommit": "2cd0c99765d1ab5c57887c9d627cb0dac8bbf1f0"
+      }
+    },
     {
       "id": "github:pr:openclaw/openclaw:104492:closed",
       "type": "upstream_pr_state",
@@ -96,7 +114,7 @@
       "state": "open",
       "evidence": {
         "headSha": "91d722e905d87d6b32ec3a6928fcbd11bf45fad4",
-        "mergeCommit": "7896e65f9c3da837b7875eecf873ad65818f7da3"
+        "mergeCommit": "9bf5a30068958894702c6e9cd469903073ae5bc7"
       }
     },
     {
