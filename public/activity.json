@@ -1,8 +1,62 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-09T19:00:44Z",
+  "generatedAt": "2026-08-10T02:34:42Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:elizaOS/eliza:18186:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18186,
+      "title": "fix(cloud): pin the staging onboarding app origin to app-staging.elizacloud.ai",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18186",
+      "occurredAt": "2026-08-10T01:55:51Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "2d190944d5f93603097e4c4289e28838d7e71dc9",
+        "mergeCommit": "a936194ecad1557c5e80d0a71161566b585306ab"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18191:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18191,
+      "title": "fix(cloud): rotate agent keys on the caller's transaction, not a second connection",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18191",
+      "occurredAt": "2026-08-10T00:36:10Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "7ea5f2b6b95f820379a8f8d328660942f2100ba5",
+        "mergeCommit": "f8592911fc714ca1df120fae34a716823f08454c"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18216:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18216,
+      "title": "chore(agent): restore Biome formatting broken by #18207",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18216",
+      "occurredAt": "2026-08-09T22:32:22Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "7a784cd668bfdfa2129ec92c5d8e48500294851a",
+        "mergeCommit": "1a558d3078dd6f58685d938d798edd614ebba4fa"
+      }
+    },
     {
       "id": "github:pr:elizaOS/eliza:18191:open",
       "type": "upstream_pr_state",
@@ -53,8 +107,8 @@
       "role": "author",
       "state": "open",
       "evidence": {
-        "headSha": "ff12b6e9524ce492c47b52739eca8a8677471902",
-        "mergeCommit": "da564b0b40a62f3c498251a1af36680846d63914"
+        "headSha": "2a727f721694ba086e04f7fac42dbdd93aeeadcd",
+        "mergeCommit": "daf0c9924530011e6b0ae30f48281b69f84ffa61"
       }
     },
     {
@@ -204,7 +258,7 @@
       "state": "open",
       "evidence": {
         "headSha": "91d722e905d87d6b32ec3a6928fcbd11bf45fad4",
-        "mergeCommit": "9bf5a30068958894702c6e9cd469903073ae5bc7"
+        "mergeCommit": "d44e5a5397a4f9b4a2e3b1b2b048477e6b264bf7"
       }
     },
     {
