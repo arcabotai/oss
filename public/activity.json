@@ -1,8 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T02:34:42Z",
+  "generatedAt": "2026-08-10T13:44:02Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:elizaOS/eliza:18282:open",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18282,
+      "title": "fix(ci): hold an indirected Bun base image to the canonical pin",
+      "summary": "Opened upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18282",
+      "occurredAt": "2026-08-10T09:05:04Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "98a1fc2008ac19ca758127855472cf84978ccec0",
+        "mergeCommit": "f4519c8e9791205b2030f4fb3865ae64dd948e28"
+      }
+    },
     {
       "id": "github:pr:elizaOS/eliza:18186:merged",
       "type": "upstream_pr_state",
@@ -108,7 +126,7 @@
       "state": "open",
       "evidence": {
         "headSha": "2a727f721694ba086e04f7fac42dbdd93aeeadcd",
-        "mergeCommit": "daf0c9924530011e6b0ae30f48281b69f84ffa61"
+        "mergeCommit": "ce9bf33e339c5cdb99413f43532578bf3f012bb2"
       }
     },
     {
