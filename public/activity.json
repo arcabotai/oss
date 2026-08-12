@@ -1,8 +1,350 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T02:44:39Z",
+  "generatedAt": "2026-08-12T07:52:46Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:openclaw/openclaw:122461:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 122461,
+      "title": "fix(ui): restore sidebar session delete and rename dialogs",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/122461",
+      "occurredAt": "2026-08-12T05:28:58Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "733f61daa7c08c84c488f49a0ee37315247ca3c4",
+        "mergeCommit": "47d8f901a07967fcb71064c8a9edd0f975e62c50"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:122460:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 122460,
+      "title": "fix: CLI backend sessions no longer flagged stuck while streaming",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/122460",
+      "occurredAt": "2026-08-12T05:28:29Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "0c5af98e3a1ad3c8162894b0c85441d0f8c40e2f",
+        "mergeCommit": "4d502b5b6f4ce49b98115a1ae75616a9c1aa0fb9"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18503:closed",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18503,
+      "title": "fix(cloud): preserve my-agents character sort without featured pin",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/elizaOS/eliza/pull/18503",
+      "occurredAt": "2026-08-12T05:26:13Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "e8af669461fda25d2b90a5234e81678a0d400d6c",
+        "mergeCommit": null
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:122457:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 122457,
+      "title": "fix(plugins): register context engines on caller-owned runtime handles",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/122457",
+      "occurredAt": "2026-08-12T05:25:20Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "33cdd5e5639ae511b27b3112ac9f746b893c7017",
+        "mergeCommit": "7f6b625884ff3aa739f53bc8c17b839a62f156db"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18516:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18516,
+      "title": "fix(notes): require structural confirmation for clear-notes (#18383)",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18516",
+      "occurredAt": "2026-08-12T05:11:51Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "49ef346f401ba3f806129df2eb37db0e64170e6e",
+        "mergeCommit": "c4b1a1559f9497732b585decf4e62a24b82bba5b"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18519:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18519,
+      "title": "fix(app-core): supervisor test fails fast when child never spawns",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18519",
+      "occurredAt": "2026-08-12T05:11:46Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "b6a61e773c0c7292c5e3a3c8d2c9e5bace7a4b8f",
+        "mergeCommit": "584fdf974d0c6912146415fb62be26e4f029cbb2"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18504:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18504,
+      "title": "fix(app): harden Playwright Node-24 runtime probe and fail-fast resolution",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18504",
+      "occurredAt": "2026-08-12T05:10:40Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "a43f6e83b5b5673ed45f7951634d4a68f79ac40f",
+        "mergeCommit": "96d10ebe17c9f8d48f6d0ea2478d7a9eb7e850f8"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18506:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18506,
+      "title": "fix(ui): RelativeTime short path renders future timestamps as \"in X\"",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18506",
+      "occurredAt": "2026-08-12T05:10:36Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "a369994727baf4b57be9a00c9cf4dd46a3b18466",
+        "mergeCommit": "a4c1956c1cc1a760ba9fd7da36b383198766ae87"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18508:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18508,
+      "title": "fix(cloud): flush snapshot error-body excerpt decode and add tests (#18228)",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18508",
+      "occurredAt": "2026-08-12T05:10:32Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "7eef5d3a1594b2d309f234884607dbe492e69756",
+        "mergeCommit": "911cb397a1be8067b38ad71cf21cc28edecca104"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18509:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18509,
+      "title": "test(eliza-code): harden TUI owner session bootstrap tests (#18270)",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18509",
+      "occurredAt": "2026-08-12T05:10:27Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "1546e83c7014991e606e42f409c8a35fce3ef124",
+        "mergeCommit": "b16246e79d4f0f28411ed4b77e23ff405d8d4ade"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18514:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18514,
+      "title": "docs(security): restore GitHub-discoverable SECURITY.md (#18446)",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18514",
+      "occurredAt": "2026-08-12T05:10:24Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "0d6973ad4e78df636db126d0e1be0dee565454df",
+        "mergeCommit": "5dd02983b41b2725ffca95d0718d65de0ab58e88"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18501:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18501,
+      "title": "fix(notes): accept smart quotes in titled/named delete derivation (#18377)",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18501",
+      "occurredAt": "2026-08-12T05:09:14Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "bff872b4e382693b38f67ed4130c9785f24e1cdd",
+        "mergeCommit": "7440d36d7a9d7b83a5286848d72595be0ec04a8c"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18502:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18502,
+      "title": "fix(plugin-task-coordinator): harden server-entry UI import guard (#18031)",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18502",
+      "occurredAt": "2026-08-12T05:09:10Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "61001e06e34fd3d74153eef47c06e5fa5bab6b0e",
+        "mergeCommit": "f0caa8e00d91a529acfe912bd0d890af547224a4"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18282:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18282,
+      "title": "fix(ci): hold an indirected Bun base image to the canonical pin",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18282",
+      "occurredAt": "2026-08-12T05:03:45Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "98a1fc2008ac19ca758127855472cf84978ccec0",
+        "mergeCommit": "7ea655220fe20b93347747b4a403848b92daf1d4"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18511:closed",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18511,
+      "title": "feat(core): harden research cancellation tests for AbortSignal support",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/elizaOS/eliza/pull/18511",
+      "occurredAt": "2026-08-12T04:43:25Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "5dfa18961df31ad1aac792d6fdf204976eb55e36",
+        "mergeCommit": "86bf3d5878ada8aafd710309a3fd14e3d9bca7d5"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18513:closed",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18513,
+      "title": "ci: avoid duplicate privileged work for fork pull requests",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/elizaOS/eliza/pull/18513",
+      "occurredAt": "2026-08-12T04:36:28Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "2d70a267b4ce17aefd0e71a3c2372b8589c284b8",
+        "mergeCommit": "93123c0a29c66581f9a49ef608c07cd1b8f958d4"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18523:open",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18523,
+      "title": "fix(google): unify LifeOps and Settings OAuth callback URL",
+      "summary": "Opened upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18523",
+      "occurredAt": "2026-08-12T04:20:31Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "c463880cc53201cc8b439d9950b6dcbd52db58a4",
+        "mergeCommit": "d9fc752de702aa19af2f1dda5fc3e35bb1e5ebab"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18522:open",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18522,
+      "title": "fix(google-workspace): require explicit least-privilege OAuth scopes",
+      "summary": "Opened upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18522",
+      "occurredAt": "2026-08-12T04:19:15Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "69806f9864c68eed9d3ee03255a50ed61e71b574",
+        "mergeCommit": "333ef022441354411a8b9aa4c95fbccfc50c6230"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18505:open",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18505,
+      "title": "fix(cloud): refresh agent routing key TTL on heartbeat (#18277)",
+      "summary": "Opened upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18505",
+      "occurredAt": "2026-08-12T03:45:20Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "7dd21dccc6b3550ab6209f4b12947670c09d77e4",
+        "mergeCommit": "41e3517611bef3c2762cd230bab12e30696eae1d"
+      }
+    },
     {
       "id": "github:pr:elizaOS/eliza:18181:closed",
       "type": "upstream_pr_state",
@@ -294,7 +636,7 @@
       "state": "open",
       "evidence": {
         "headSha": "91d722e905d87d6b32ec3a6928fcbd11bf45fad4",
-        "mergeCommit": "dd77c237a1c4a65d4c5c71d73bfc6ec2e06c5e44"
+        "mergeCommit": "66e79ef8990de8b0625a37698d817b77bc20b48a"
       }
     },
     {
@@ -567,42 +909,6 @@
       "evidence": {
         "headSha": "fb137a71e7288e7e166a717bfec8ae8f2fecf562",
         "mergeCommit": null
-      }
-    },
-    {
-      "id": "github:pr:openclaw/openclaw:104492:open",
-      "type": "upstream_pr_state",
-      "project": "openclaw",
-      "repository": "openclaw/openclaw",
-      "number": 104492,
-      "title": "fix(gateway): preserve channel restart ownership",
-      "summary": "Opened upstream",
-      "url": "https://github.com/openclaw/openclaw/pull/104492",
-      "occurredAt": "2026-07-11T13:33:32Z",
-      "actor": "arcabotai",
-      "role": "author",
-      "state": "open",
-      "evidence": {
-        "headSha": "be8ca9eefbf9317beaa8f7b061310e30a11c011e",
-        "mergeCommit": null
-      }
-    },
-    {
-      "id": "github:review:farcasterorg/hypersnap:10:4177281968",
-      "type": "review_submitted",
-      "project": "Hypersnap / Snapchain",
-      "repository": "farcasterorg/hypersnap",
-      "number": 10,
-      "title": "fix: missing hyper api, backfill, nightly deploys",
-      "summary": "Submitted changes requested review",
-      "url": "https://github.com/farcasterorg/hypersnap/pull/10#pullrequestreview-4177281968",
-      "occurredAt": "2026-04-26T18:39:27Z",
-      "actor": "arcabotai",
-      "role": "reviewer",
-      "state": "changes_requested",
-      "evidence": {
-        "reviewId": 4177281968,
-        "commitId": "fbf08fcc1465e1fa084f2561312f41d9a8ebbf18"
       }
     }
   ]
