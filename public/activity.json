@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T13:43:00Z",
+  "generatedAt": "2026-08-12T02:44:39Z",
   "cadence": "every 6 hours",
   "events": [
     {
@@ -36,7 +36,7 @@
       "state": "open",
       "evidence": {
         "headSha": "98a1fc2008ac19ca758127855472cf84978ccec0",
-        "mergeCommit": "e38218a2a418350a43163cbb869fadc035a27d9e"
+        "mergeCommit": "ea2a9b9f5874996ca64e16eed3ea9eaee87475c5"
       }
     },
     {
