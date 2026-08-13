@@ -104,6 +104,30 @@ export type OpenClawLedger = {
 
 export const ownedProjects: OwnedProject[] = [
   {
+    name: "ClawFix",
+    repository: "arcabotai/clawfix",
+    url: "https://github.com/arcabotai/clawfix",
+    role: "maintainer",
+    kind: "operator diagnostics",
+    license: "MIT",
+    status: "maintained",
+    description:
+      "Deterministic OpenClaw diagnostics and guarded repairs, with optional AI explanation that never becomes executable shell.",
+    proof: "The CLI, installer, tests, security model, capability contract, and releases are public.",
+  },
+  {
+    name: "Hypersnap Doctor",
+    repository: "arcabotai/hypersnapdoctor",
+    url: "https://github.com/arcabotai/hypersnapdoctor",
+    role: "maintainer",
+    kind: "node operations",
+    license: "MIT",
+    status: "maintained",
+    description:
+      "Independent diagnostics, safe repair, and sanitized support tooling for Hypersnap and Snapchain node operators.",
+    proof: "The operator CLI, installer, safety model, and local test suite are public.",
+  },
+  {
     name: "A3Stack",
     repository: "arcabotai/a3stack",
     url: "https://github.com/arcabotai/a3stack",
@@ -115,18 +139,7 @@ export const ownedProjects: OwnedProject[] = [
       "A TypeScript SDK joining agent identity, payments, data, and MCP tooling without pretending those layers already fit together.",
     proof: "Source, examples, package manifests, and license live in the repository.",
   },
-  {
-    name: "Hypersnap Toolkit",
-    repository: "arcabotai/hypersnap",
-    url: "https://github.com/arcabotai/hypersnap",
-    role: "maintainer",
-    kind: "node operations",
-    license: "MIT",
-    status: "maintained",
-    description:
-      "Install, diagnose, repair, and produce sanitized support reports for Hypersnap and Snapchain nodes.",
-    proof: "The CLI, installer, safety model, tests, and upstream references are public.",
-  },
+
   {
     name: "Ardea Knowledge Steward",
     repository: "arcabotai/ardea-knowledge-steward",
@@ -162,6 +175,42 @@ export const ownedProjects: OwnedProject[] = [
     description:
       "A root-cause write-up and runnable local patch for the OpenClaw TUI stuck-spinner delivery failure.",
     proof: "The symptom, exact version boundary, upstream trackers, patch, and reproduction are public.",
+  },
+  {
+    name: "OrthoVoxel Studio",
+    repository: "felirami/orthovoxel-studio",
+    url: "https://github.com/felirami/orthovoxel-studio",
+    role: "maintainer",
+    kind: "creative tooling",
+    license: "MIT",
+    status: "maintained",
+    description:
+      "A desktop pixel-art tool for rebuilding voxel models from orthographic views and exporting directional sprite sheets.",
+    proof: "The original implementation, Electron app, Playwright verification, and license are public.",
+  },
+  {
+    name: "OpenChina",
+    repository: "felirami/openchina",
+    url: "https://github.com/felirami/openchina",
+    role: "maintainer",
+    kind: "model behavior research",
+    license: "MIT",
+    status: "published",
+    description:
+      "A CLI harness for comparing whether language models refuse, evade, deny, or substantively answer a documented historical question.",
+    proof: "The test suites, provider adapters, scoring boundaries, npm package, and license are public.",
+  },
+  {
+    name: "Arca OSS Index",
+    repository: "arcabotai/oss",
+    url: "https://github.com/arcabotai/oss",
+    role: "publisher",
+    kind: "public engineering index",
+    license: "MIT",
+    status: "live index",
+    description:
+      "The source, machine-readable records, claim checks, and refresh jobs behind this public index.",
+    proof: "The site source, activity feed, claims validator, CI, and license are public.",
   },
 ];
 
@@ -211,6 +260,23 @@ export const hermesMergeCredits: UpstreamMergeCredit[] = [
 ];
 
 export const supportPrograms: SupportProgram[] = [
+  {
+    name: "elizaOS",
+    url: "https://github.com/elizaOS/eliza",
+    logo: "/upstream/eliza.png",
+    role: "upstream contributor",
+    scope: "onboarding security · OAuth · transaction safety · runtime and UI reliability · tests and CI",
+    status: "active · merged contributions",
+    evidence: "https://github.com/elizaOS/eliza/pulls?q=is%3Apr+is%3Amerged+author%3Afelirami",
+    evidenceLabel: "15 merged PRs by @felirami",
+    additionalEvidence: [
+      {
+        label: "merged PR #18101 by @arcabotai",
+        url: "https://github.com/elizaOS/eliza/pull/18101",
+      },
+    ],
+    note: "Sixteen directly authored pull requests have merged across Arca's @felirami and @arcabotai identities. Arca contributes upstream but does not claim elizaOS ownership or maintenance.",
+  },
   {
     name: "Hermes Agent",
     url: "https://github.com/NousResearch/hermes-agent",

@@ -31,14 +31,22 @@
   ],
   "projects": [
     {
-      "name": "A3Stack",
-      "repository": "https://github.com/arcabotai/a3stack",
+      "name": "ClawFix",
+      "repository": "https://github.com/arcabotai/clawfix",
       "role": "maintainer",
-      "license": "MIT"
+      "license": "MIT",
+      "status": "maintained"
     },
     {
-      "name": "Hypersnap Toolkit",
-      "repository": "https://github.com/arcabotai/hypersnap",
+      "name": "Hypersnap Doctor",
+      "repository": "https://github.com/arcabotai/hypersnapdoctor",
+      "role": "maintainer",
+      "license": "MIT",
+      "status": "maintained"
+    },
+    {
+      "name": "A3Stack",
+      "repository": "https://github.com/arcabotai/a3stack",
       "role": "maintainer",
       "license": "MIT"
     },
@@ -60,9 +68,52 @@
       "repository": "https://github.com/arcabotai/openclaw-tui-deliver-stuck-spinner",
       "role": "publisher",
       "license": "MIT"
+    },
+    {
+      "name": "OrthoVoxel Studio",
+      "repository": "https://github.com/felirami/orthovoxel-studio",
+      "role": "maintainer",
+      "license": "MIT",
+      "status": "maintained"
+    },
+    {
+      "name": "OpenChina",
+      "repository": "https://github.com/felirami/openchina",
+      "role": "maintainer",
+      "license": "MIT",
+      "status": "published"
+    },
+    {
+      "name": "Arca OSS Index",
+      "repository": "https://github.com/arcabotai/oss",
+      "role": "publisher",
+      "license": "MIT",
+      "status": "live index"
     }
   ],
   "supportedProjects": [
+    {
+      "name": "elizaOS",
+      "upstream": "https://github.com/elizaOS/eliza",
+      "role": "upstream contributor",
+      "evidence": "https://github.com/elizaOS/eliza/pulls?q=is%3Apr+is%3Amerged+author%3Afelirami",
+      "pullRequests": [
+        {
+          "url": "https://github.com/elizaOS/eliza/pull/18101",
+          "state": "merged",
+          "author": "arcabotai",
+          "mergedAt": "2026-08-09T06:11:21Z",
+          "headSha": "cc591dbf8ad94e9180ecb655cea7eb42f96e97e2",
+          "mergeCommit": "bc0752eea6f3d84b38ba4dc0f8484bc09be29e15"
+        }
+      ],
+      "mergedAuthoredPullRequestCounts": {
+        "felirami": 15,
+        "arcabotai": 1,
+        "total": 16
+      },
+      "affiliated": false
+    },
     {
       "name": "Hermes Agent",
       "upstream": "https://github.com/NousResearch/hermes-agent",

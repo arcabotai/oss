@@ -180,7 +180,6 @@ a:focus-visible, button:focus-visible, .hero-copy:focus-visible { outline: 2px s
 .support-policy { background: var(--paper); color: var(--ink); }
 .support-policy p { color: #303936 !important; }
 .support-policy .record-topline { color: #596360; }
-.policy-checks { display: grid; gap: 5px; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; margin-top: auto; }
 
 .ledger-heading { grid-template-columns: 1fr auto; }
 .ledger-heading > div:first-child { display: grid; grid-template-columns: 180px 1fr; gap: 32px; }

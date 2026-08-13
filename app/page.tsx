@@ -141,7 +141,7 @@ export default async function Home() {
             <div className="map-plate" />
             <div className="map-node map-core"><span>ARCA</span><strong>OSS</strong><small>Santiago</small></div>
             <div className="map-node map-a3"><small>maintain</small><strong>A3Stack</strong><span>MIT</span></div>
-            <div className="map-node map-hyper"><small>maintain</small><strong>Hypersnap</strong><span>MIT</span></div>
+            <div className="map-node map-hyper"><small>maintain</small><strong>Hypersnap Doctor</strong><span>MIT</span></div>
             <div className="map-node map-claw"><small>support</small><strong>OpenClaw</strong><span>{ledger.pullRequests.length} PRs</span></div>
             <div className="map-node map-proof"><small>accepted</small><strong>Hermes + ClickClack</strong><span>{hermesMerged + clickClackMerged} receipts</span></div>
           </div>
@@ -216,7 +216,7 @@ export default async function Home() {
         <div className="section-heading">
           <p className="section-number">02 / MAINTAINED</p>
           <h2 id="maintained-title">Code we are responsible for.</h2>
-          <p>Not a portfolio dump. These repositories have explicit licenses, public source, and a concrete maintenance or publication boundary.</p>
+          <p>Licensed projects we maintain, steward, or publish, with the source and our responsibility made clear.</p>
         </div>
         <div className="project-ledger">
           {ownedProjects.map((project, index) => (
@@ -243,7 +243,7 @@ export default async function Home() {
         <div className="section-heading">
           <p className="section-number">03 / SUPPORTED</p>
           <h2 id="support-title">Projects we help carry.</h2>
-          <p>Roles are evidence labels, not vibes. “Maintainer,” “reviewer,” and “contributor” appear only when the public record supports the word.</p>
+          <p>Each entry names our role and links to the public work behind it.</p>
         </div>
         <div className="support-grid">
           {supportPrograms.map((program) => (
@@ -268,12 +268,9 @@ export default async function Home() {
             </article>
           ))}
           <article className="support-record support-policy">
-            <div className="record-topline"><span>claim policy</span><span>fail closed</span></div>
-            <h3>No honorary badges.</h3>
-            <p>Review work appears here after a public review exists. Maintenance appears after responsibility is real. Support is not affiliation.</p>
-            <div className="policy-checks" aria-label="Evidence rules">
-              <span>✓ public URL</span><span>✓ exact state</span><span>✓ attribution boundary</span>
-            </div>
+            <div className="record-topline"><span>how we describe the work</span></div>
+            <h3>Clear roles, public evidence.</h3>
+            <p>Every role on this page links to a public record. We keep authored work, reviews, merged code, and maintenance responsibilities distinct without implying affiliation with the projects we support.</p>
           </article>
         </div>
       </section>

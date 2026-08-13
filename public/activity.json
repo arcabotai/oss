@@ -1,8 +1,134 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T19:20:51Z",
+  "generatedAt": "2026-08-13T05:31:18Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:openclaw/openclaw:122984:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 122984,
+      "title": "fix(plugins): allow install when outgoing channel schema disagrees",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/122984",
+      "occurredAt": "2026-08-13T04:14:56Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "5294d7ba03ad6662551325724d0f5152701ba4eb",
+        "mergeCommit": "b895c253ef8600399ccbcbd3d2d9dca013c29c3f"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18522:closed",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18522,
+      "title": "fix(google-workspace): require explicit least-privilege OAuth scopes",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/elizaOS/eliza/pull/18522",
+      "occurredAt": "2026-08-12T22:56:34Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "69806f9864c68eed9d3ee03255a50ed61e71b574",
+        "mergeCommit": "8b9b9dd2fa6aaeeac93de3febc8ec0684b0f8528"
+      }
+    },
+    {
+      "id": "github:pr:elizaOS/eliza:18523:merged",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18523,
+      "title": "fix(google): unify LifeOps and Settings OAuth callback URL",
+      "summary": "Merged upstream",
+      "url": "https://github.com/elizaOS/eliza/pull/18523",
+      "occurredAt": "2026-08-12T22:53:18Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "d768019c12cef7cef1c47fc8274c1223da3b77cf",
+        "mergeCommit": "2de0c1ef6a968ec6c9ada6f4785ff3d9cc7d42ac"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:122855:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 122855,
+      "title": "fix(subagents): preserve announce drop vs none delivery reasons",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/122855",
+      "occurredAt": "2026-08-12T22:50:38Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "c29b89f59c95a409c2c5509b83c7f0096f6741ec",
+        "mergeCommit": "d6bc83282043ef032005a2453260f2b6c5c25ef8"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:122827:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 122827,
+      "title": "fix(slack): strip Exec failed traces from streaming replies",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/122827",
+      "occurredAt": "2026-08-12T21:40:06Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "3203c55bcae1931ea0ca7d9d2f8477ac64f6a07e",
+        "mergeCommit": null
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:122804:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 122804,
+      "title": "fix(plugins): honor enabledByDefault in config validation warnings",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/122804",
+      "occurredAt": "2026-08-12T20:42:22Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "2a603ba0572c55c6a0732e63f4f156b78b694f84",
+        "mergeCommit": "a37b5cb8b72e847958276c01e0e91dd6e2b06aee"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:122461:closed",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 122461,
+      "title": "fix(ui): restore sidebar session delete and rename dialogs",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/openclaw/openclaw/pull/122461",
+      "occurredAt": "2026-08-12T19:48:02Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "733f61daa7c08c84c488f49a0ee37315247ca3c4",
+        "mergeCommit": "215516140d6f0c830537fdecce09ca50b077e5b6"
+      }
+    },
     {
       "id": "github:pr:openclaw/openclaw:122461:open",
       "type": "upstream_pr_state",
@@ -35,8 +161,8 @@
       "role": "author",
       "state": "open",
       "evidence": {
-        "headSha": "0c5af98e3a1ad3c8162894b0c85441d0f8c40e2f",
-        "mergeCommit": "59bfd3f583d5744f0bc2c17a4053e3af7c53b37d"
+        "headSha": "703d457020e4a9efc09c1619f4d462ed51b8d634",
+        "mergeCommit": "8189e0dd9e67599657f6e2eedcd036a0931e3cb0"
       }
     },
     {
@@ -63,7 +189,7 @@
       "project": "openclaw",
       "repository": "openclaw/openclaw",
       "number": 122457,
-      "title": "fix(plugins): register context engines on caller-owned runtime handles",
+      "title": "fix(plugins): adopt root context engines on caller-owned handles",
       "summary": "Opened upstream",
       "url": "https://github.com/openclaw/openclaw/pull/122457",
       "occurredAt": "2026-08-12T05:25:20Z",
@@ -71,8 +197,8 @@
       "role": "author",
       "state": "open",
       "evidence": {
-        "headSha": "33cdd5e5639ae511b27b3112ac9f746b893c7017",
-        "mergeCommit": "db4a31103cf45d6dd408da5b139335744beeec8e"
+        "headSha": "01e0083069ab24871e47d4ad121cf5cbe2b444e6",
+        "mergeCommit": "cd51674bbf7b5d18b5799ab919b061763a44a1b1"
       }
     },
     {
@@ -342,7 +468,7 @@
       "state": "open",
       "evidence": {
         "headSha": "7dd21dccc6b3550ab6209f4b12947670c09d77e4",
-        "mergeCommit": "d9df5dc4da0aa28e6bd6f4ed7924a058a76dde57"
+        "mergeCommit": "6bf146b07d1ce7caabff5db596de12903ad10f67"
       }
     },
     {
@@ -562,6 +688,24 @@
       }
     },
     {
+      "id": "github:release:arcabotai/clawfix:363706050",
+      "type": "release",
+      "project": "ClawFix",
+      "repository": "arcabotai/clawfix",
+      "number": null,
+      "title": "Release v0.12.0",
+      "summary": "Published v0.12.0",
+      "url": "https://github.com/arcabotai/clawfix/releases/tag/v0.12.0",
+      "occurredAt": "2026-08-02T05:24:40Z",
+      "actor": "github-actions[bot]",
+      "role": "publisher",
+      "state": "released",
+      "evidence": {
+        "releaseId": 363706050,
+        "tag": "v0.12.0"
+      }
+    },
+    {
       "id": "github:pr:NousResearch/hermes-agent:74779:closed",
       "type": "upstream_pr_state",
       "project": "hermes-agent",
@@ -636,7 +780,7 @@
       "state": "open",
       "evidence": {
         "headSha": "91d722e905d87d6b32ec3a6928fcbd11bf45fad4",
-        "mergeCommit": "66e79ef8990de8b0625a37698d817b77bc20b48a"
+        "mergeCommit": "015dd221c37b0779e5fba1501bf27d0b81538729"
       }
     },
     {
@@ -673,6 +817,78 @@
       "evidence": {
         "headSha": "013974334b62a05b917fd605212175007d97412b",
         "mergeCommit": "08a5f9ac92426369c2c3a6fcbdc8669802d41202"
+      }
+    },
+    {
+      "id": "github:release:arcabotai/clawfix:359113840",
+      "type": "release",
+      "project": "ClawFix",
+      "repository": "arcabotai/clawfix",
+      "number": null,
+      "title": "v0.11.2",
+      "summary": "Published v0.11.2",
+      "url": "https://github.com/arcabotai/clawfix/releases/tag/v0.11.2",
+      "occurredAt": "2026-07-24T06:22:17Z",
+      "actor": "github-actions[bot]",
+      "role": "publisher",
+      "state": "released",
+      "evidence": {
+        "releaseId": 359113840,
+        "tag": "v0.11.2"
+      }
+    },
+    {
+      "id": "github:release:arcabotai/clawfix:359103934",
+      "type": "release",
+      "project": "ClawFix",
+      "repository": "arcabotai/clawfix",
+      "number": null,
+      "title": "v0.11.1",
+      "summary": "Published v0.11.1",
+      "url": "https://github.com/arcabotai/clawfix/releases/tag/v0.11.1",
+      "occurredAt": "2026-07-24T06:00:01Z",
+      "actor": "github-actions[bot]",
+      "role": "publisher",
+      "state": "released",
+      "evidence": {
+        "releaseId": 359103934,
+        "tag": "v0.11.1"
+      }
+    },
+    {
+      "id": "github:release:arcabotai/clawfix:359080070",
+      "type": "release",
+      "project": "ClawFix",
+      "repository": "arcabotai/clawfix",
+      "number": null,
+      "title": "v0.11.0",
+      "summary": "Published v0.11.0",
+      "url": "https://github.com/arcabotai/clawfix/releases/tag/v0.11.0",
+      "occurredAt": "2026-07-24T04:27:42Z",
+      "actor": "github-actions[bot]",
+      "role": "publisher",
+      "state": "released",
+      "evidence": {
+        "releaseId": 359080070,
+        "tag": "v0.11.0"
+      }
+    },
+    {
+      "id": "github:release:arcabotai/clawfix:358837760",
+      "type": "release",
+      "project": "ClawFix",
+      "repository": "arcabotai/clawfix",
+      "number": null,
+      "title": "Release v0.10.0",
+      "summary": "Published v0.10.0",
+      "url": "https://github.com/arcabotai/clawfix/releases/tag/v0.10.0",
+      "occurredAt": "2026-07-23T17:10:37Z",
+      "actor": "arcabotai",
+      "role": "publisher",
+      "state": "released",
+      "evidence": {
+        "releaseId": 358837760,
+        "tag": "v0.10.0"
       }
     },
     {
@@ -768,6 +984,24 @@
       }
     },
     {
+      "id": "github:release:arcabotai/clawfix:355434330",
+      "type": "release",
+      "project": "ClawFix",
+      "repository": "arcabotai/clawfix",
+      "number": null,
+      "title": "Release v0.9.1",
+      "summary": "Published v0.9.1",
+      "url": "https://github.com/arcabotai/clawfix/releases/tag/v0.9.1",
+      "occurredAt": "2026-07-17T01:56:27Z",
+      "actor": "github-actions[bot]",
+      "role": "publisher",
+      "state": "released",
+      "evidence": {
+        "releaseId": 355434330,
+        "tag": "v0.9.1"
+      }
+    },
+    {
       "id": "github:pr:openclaw/openclaw:107901:closed",
       "type": "upstream_pr_state",
       "project": "openclaw",
@@ -783,24 +1017,6 @@
       "evidence": {
         "headSha": "1dab58ea4d0a61221c9d7884b5a8bc9d1c043511",
         "mergeCommit": "14de221f1422dc522ae8a4bcff98e6eead018c4e"
-      }
-    },
-    {
-      "id": "github:pr:openclaw/openclaw:107963:open",
-      "type": "upstream_pr_state",
-      "project": "openclaw",
-      "repository": "openclaw/openclaw",
-      "number": 107963,
-      "title": "fix(update): reject npm redacted global root paths",
-      "summary": "Opened upstream",
-      "url": "https://github.com/openclaw/openclaw/pull/107963",
-      "occurredAt": "2026-07-15T03:25:34Z",
-      "actor": "arcabotai",
-      "role": "author",
-      "state": "open",
-      "evidence": {
-        "headSha": "a4e3041b8660fadcd1615e5d15b30d30e859e666",
-        "mergeCommit": null
       }
     },
     {
@@ -909,6 +1125,24 @@
       "evidence": {
         "headSha": "fb137a71e7288e7e166a717bfec8ae8f2fecf562",
         "mergeCommit": null
+      }
+    },
+    {
+      "id": "github:review:farcasterorg/hypersnap:10:4177281968",
+      "type": "review_submitted",
+      "project": "Hypersnap / Snapchain",
+      "repository": "farcasterorg/hypersnap",
+      "number": 10,
+      "title": "fix: missing hyper api, backfill, nightly deploys",
+      "summary": "Submitted changes requested review",
+      "url": "https://github.com/farcasterorg/hypersnap/pull/10#pullrequestreview-4177281968",
+      "occurredAt": "2026-04-26T18:39:27Z",
+      "actor": "arcabotai",
+      "role": "reviewer",
+      "state": "changes_requested",
+      "evidence": {
+        "reviewId": 4177281968,
+        "commitId": "fbf08fcc1465e1fa084f2561312f41d9a8ebbf18"
       }
     }
   ]

@@ -8,7 +8,7 @@ const OUTPUT_PATH = path.join(ROOT, "public", "activity.json");
 const API = "https://api.github.com";
 const DEFAULT_SINCE = "2026-02-12";
 const MAX_SEARCH_RESULTS = 100;
-const MAX_EVENTS = 50;
+const MAX_EVENTS = 200;
 
 function isoNow() {
   return new Date().toISOString().replace(/\.\d{3}Z$/, "Z");

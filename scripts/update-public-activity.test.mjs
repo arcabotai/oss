@@ -63,6 +63,16 @@ test("prior state transitions remain visible for monitored PRs", () => {
   assert.deepEqual(result.map((event) => event.state), ["merged", "open"]);
 });
 
+test("the public feed keeps more than fifty receipts", () => {
+  const events = Array.from({ length: 60 }, (_, index) => ({
+    ...normalizePullRequest(pull),
+    id: `receipt-${index}`,
+    number: index,
+    occurredAt: `2026-07-${String((index % 28) + 1).padStart(2, "0")}T00:00:00Z`,
+  }));
+  assert.equal(mergeEvents(events).length, 60);
+});
+
 test("generatedAt changes only when public event content changes", () => {
   const event = normalizePullRequest(pull);
   const previous = {

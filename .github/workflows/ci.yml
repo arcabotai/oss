@@ -20,4 +20,9 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run lint
+      - run: npm run test:activity
+      - run: npm run check:claims
+        env:
+          GH_TOKEN: ${{ github.token }}
       - run: npm run build
+      - run: npm audit --omit=dev

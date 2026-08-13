@@ -2,12 +2,24 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 const licensed = [
+  { repository: "arcabotai/clawfix", spdx: "MIT" },
+  { repository: "arcabotai/hypersnapdoctor", spdx: "MIT" },
   { repository: "arcabotai/a3stack", spdx: "MIT" },
-  { repository: "arcabotai/hypersnap", spdx: "MIT" },
   { repository: "arcabotai/ardea-knowledge-steward", contains: "Apache License\nVersion 2.0" },
   { repository: "arcabotai/arca-openclaw-contributions", spdx: "MIT" },
   { repository: "arcabotai/openclaw-tui-deliver-stuck-spinner", spdx: "MIT" },
+  { repository: "felirami/orthovoxel-studio", spdx: "MIT" },
+  { repository: "felirami/openchina", spdx: "MIT" },
+  { repository: "arcabotai/oss", spdx: "MIT" },
 ];
+
+const elizaMergedCounts = { felirami: 15, arcabotai: 1 };
+const elizaArcabotPr = {
+  number: 18101,
+  author: "arcabotai",
+  headSha: "cc591dbf8ad94e9180ecb655cea7eb42f96e97e2",
+  mergeCommit: "bc0752eea6f3d84b38ba4dc0f8484bc09be29e15",
+};
 
 const prs = [104192, 104492, 104893, 105029];
 const founderMergedPr = {
@@ -90,6 +102,17 @@ for (const expected of licensed) {
     assert.ok(license.includes(expected.contains), `${expected.repository}: expected explicit Apache-2.0 license notice`);
   }
 }
+
+for (const [author, count] of Object.entries(elizaMergedCounts)) {
+  const query = encodeURIComponent(`repo:elizaOS/eliza is:pr is:merged author:${author}`);
+  const result = await github(`search/issues?q=${query}&per_page=100`);
+  assert.equal(result.total_count, count, `elizaOS: expected ${count} merged PRs by ${author}`);
+}
+const elizaPr = await github(`repos/elizaOS/eliza/pulls/${elizaArcabotPr.number}`);
+assert.ok(elizaPr.merged_at, `elizaOS PR #${elizaArcabotPr.number}: expected merged state`);
+assert.equal(elizaPr.user?.login, elizaArcabotPr.author, `elizaOS PR #${elizaArcabotPr.number}: author changed`);
+assert.equal(elizaPr.head?.sha, elizaArcabotPr.headSha, `elizaOS PR #${elizaArcabotPr.number}: head changed`);
+assert.equal(elizaPr.merge_commit_sha, elizaArcabotPr.mergeCommit, `elizaOS PR #${elizaArcabotPr.number}: merge commit changed`);
 
 for (const number of prs) {
   const pr = await github(`repos/openclaw/openclaw/pulls/${number}`);
@@ -206,7 +229,7 @@ const activityTypes = new Set([
 ]);
 assert.equal(activity.schemaVersion, 1, "Public activity: unsupported schema version");
 assert.equal(activity.cadence, "every 6 hours", "Public activity: cadence changed");
-assert.ok(activity.events.length > 0 && activity.events.length <= 50, "Public activity: expected 1-50 bounded events");
+assert.ok(activity.events.length > 0 && activity.events.length <= 200, "Public activity: expected 1-200 bounded events");
 assert.equal(new Set(activity.events.map((event) => event.id)).size, activity.events.length, "Public activity: duplicate event IDs");
 for (const [index, event] of activity.events.entries()) {
   assert.ok(activityTypes.has(event.type), `Public activity ${event.id}: unsupported type`);
@@ -261,7 +284,7 @@ assert.ok(
   "Public activity: Hermes Agent merged authorship receipt missing",
 );
 console.log(
-  `Verified ${licensed.length} licensed repositories, ${prs.length} sampled OpenClaw PR records, ` +
+  `Verified ${licensed.length} licensed repositories, 16 merged elizaOS PRs, ${prs.length} sampled OpenClaw PR records, ` +
     `1 merged founder PR, 1 merged Crabbox PR, 1 open Buzz PR, ${publicLedger.pullRequests.length} live ledger records, ` +
     `${activity.events.length} public activity events, ${clickClackMergeCredits.length} merged ClickClack co-author credits, ` +
     `1 merged Hermes Agent authorship receipt, and 2 upstream reviews.`,
