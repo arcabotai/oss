@@ -1,8 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T05:31:18Z",
+  "generatedAt": "2026-08-13T07:53:39Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:elizaOS/eliza:18505:closed",
+      "type": "upstream_pr_state",
+      "project": "eliza",
+      "repository": "elizaOS/eliza",
+      "number": 18505,
+      "title": "fix(cloud): refresh agent routing key TTL on heartbeat (#18277)",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/elizaOS/eliza/pull/18505",
+      "occurredAt": "2026-08-13T06:23:47Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "7dd21dccc6b3550ab6209f4b12947670c09d77e4",
+        "mergeCommit": "6bf146b07d1ce7caabff5db596de12903ad10f67"
+      }
+    },
     {
       "id": "github:pr:openclaw/openclaw:122984:open",
       "type": "upstream_pr_state",
