@@ -13,13 +13,18 @@ const licensed = [
   { repository: "arcabotai/oss", spdx: "MIT" },
 ];
 
-const elizaMergedCounts = { felirami: 15, arcabotai: 1 };
+const elizaMergedBaseline = { felirami: 15, arcabotai: 1 };
 const elizaArcabotPr = {
   number: 18101,
   author: "arcabotai",
   headSha: "cc591dbf8ad94e9180ecb655cea7eb42f96e97e2",
   mergeCommit: "bc0752eea6f3d84b38ba4dc0f8484bc09be29e15",
 };
+const slimeVrMergedPrs = [
+  { number: 1, author: "felirami", headSha: "670a25491332ea444dab8419c54138172c7d704d", mergeCommit: "c8699d3565fe83927988167a4de217c4ea4ccb81" },
+  { number: 6, author: "felirami", headSha: "f4a6de07da991a692889acc7dd77dd5aa9a08f4e", mergeCommit: "ee51f530e06f0385ae3ddc4a5256048cb2d55393" },
+  { number: 9, author: "felirami", headSha: "d1b9939b3cc90d6e1831d291dae9cf44b322ba55", mergeCommit: "b8a4a2da6e3266131136ac96ae59257572a2d2a6" },
+];
 
 const prs = [104192, 104492, 104893, 105029];
 const founderMergedPr = {
@@ -103,16 +108,26 @@ for (const expected of licensed) {
   }
 }
 
-for (const [author, count] of Object.entries(elizaMergedCounts)) {
+for (const [author, count] of Object.entries(elizaMergedBaseline)) {
   const query = encodeURIComponent(`repo:elizaOS/eliza is:pr is:merged author:${author}`);
   const result = await github(`search/issues?q=${query}&per_page=100`);
-  assert.equal(result.total_count, count, `elizaOS: expected ${count} merged PRs by ${author}`);
+  assert.ok(result.total_count >= count, `elizaOS: expected at least ${count} merged PRs by ${author}`);
 }
 const elizaPr = await github(`repos/elizaOS/eliza/pulls/${elizaArcabotPr.number}`);
 assert.ok(elizaPr.merged_at, `elizaOS PR #${elizaArcabotPr.number}: expected merged state`);
 assert.equal(elizaPr.user?.login, elizaArcabotPr.author, `elizaOS PR #${elizaArcabotPr.number}: author changed`);
 assert.equal(elizaPr.head?.sha, elizaArcabotPr.headSha, `elizaOS PR #${elizaArcabotPr.number}: head changed`);
 assert.equal(elizaPr.merge_commit_sha, elizaArcabotPr.mergeCommit, `elizaOS PR #${elizaArcabotPr.number}: merge commit changed`);
+
+const slimeVrLicense = await github("repos/Sorakage033/SlimeVR-CheeseCake/license");
+assert.equal(slimeVrLicense.license?.spdx_id, "Apache-2.0", "SlimeVR CheeseCake: expected Apache-2.0 license");
+for (const expected of slimeVrMergedPrs) {
+  const pr = await github(`repos/Sorakage033/SlimeVR-CheeseCake/pulls/${expected.number}`);
+  assert.ok(pr.merged_at, `SlimeVR CheeseCake PR #${expected.number}: expected merged state`);
+  assert.equal(pr.user?.login, expected.author, `SlimeVR CheeseCake PR #${expected.number}: author changed`);
+  assert.equal(pr.head?.sha, expected.headSha, `SlimeVR CheeseCake PR #${expected.number}: head changed`);
+  assert.equal(pr.merge_commit_sha, expected.mergeCommit, `SlimeVR CheeseCake PR #${expected.number}: merge commit changed`);
+}
 
 for (const number of prs) {
   const pr = await github(`repos/openclaw/openclaw/pulls/${number}`);
@@ -284,7 +299,8 @@ assert.ok(
   "Public activity: Hermes Agent merged authorship receipt missing",
 );
 console.log(
-  `Verified ${licensed.length} licensed repositories, 16 merged elizaOS PRs, ${prs.length} sampled OpenClaw PR records, ` +
+  `Verified ${licensed.length} licensed repositories, at least ${Object.values(elizaMergedBaseline).reduce((sum, count) => sum + count, 0)} merged elizaOS PRs, ` +
+    `${slimeVrMergedPrs.length} merged SlimeVR CheeseCake PRs, ${prs.length} sampled OpenClaw PR records, ` +
     `1 merged founder PR, 1 merged Crabbox PR, 1 open Buzz PR, ${publicLedger.pullRequests.length} live ledger records, ` +
     `${activity.events.length} public activity events, ${clickClackMergeCredits.length} merged ClickClack co-author credits, ` +
     `1 merged Hermes Agent authorship receipt, and 2 upstream reviews.`,

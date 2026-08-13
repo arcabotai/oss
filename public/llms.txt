@@ -30,6 +30,7 @@ Arca OSS is the public engineering index for Arca Systems. It documents open-sou
 
 - [elizaOS merged PRs by felirami](https://github.com/elizaOS/eliza/pulls?q=is%3Apr+is%3Amerged+author%3Afelirami) — fifteen directly authored merged pull requests covering security, OAuth, transaction safety, runtime reliability, UI behavior, tests, and CI.
 - [elizaOS PR #18101](https://github.com/elizaOS/eliza/pull/18101) — directly authored merged security fix by `@arcabotai` for Telegram browser onboarding continuation.
+- [SlimeVR CheeseCake PR #1](https://github.com/Sorakage033/SlimeVR-CheeseCake/pull/1), [#6](https://github.com/Sorakage033/SlimeVR-CheeseCake/pull/6), and [#9](https://github.com/Sorakage033/SlimeVR-CheeseCake/pull/9) — three merged hardware-documentation and fabrication-asset contributions authored by `@felirami`.
 - [ClickClack PR #91](https://github.com/openclaw/clickclack/pull/91) — merged integration-history helpers extracted from Arca's closed connector proposal; the implementation commit retains `Cad from Arca <cad@arcabot.ai>` as co-author, and the changelog thanks `@arcabotai`.
 - [ClickClack PR #92](https://github.com/openclaw/clickclack/pull/92) — merged typed agent-progress SDK contracts with the same co-author and changelog credit.
 - [ClickClack PR #78](https://github.com/openclaw/clickclack/pull/78) — original Hermes connector proposal; closed without merge and preserved as the provenance source for #91 and #92.

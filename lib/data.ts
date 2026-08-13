@@ -295,6 +295,21 @@ export const supportPrograms: SupportProgram[] = [
     note: "Hermes merged five Cad-authored commits through maintainer PR #76400, with @arcabotai mapped in the contributor record. Arca is an independent contributor, not a Nous Research maintainer or affiliate.",
   },
   {
+    name: "SlimeVR CheeseCake",
+    url: "https://github.com/Sorakage033/SlimeVR-CheeseCake",
+    logo: "/upstream/slimevr.png",
+    role: "upstream contributor",
+    scope: "hardware documentation · 3D-printing instructions · fabrication assets · battery guidance",
+    status: "3 merged contributions",
+    evidence: "https://github.com/Sorakage033/SlimeVR-CheeseCake/pull/1",
+    evidenceLabel: "merged PR #1",
+    additionalEvidence: [
+      { label: "merged PR #6", url: "https://github.com/Sorakage033/SlimeVR-CheeseCake/pull/6" },
+      { label: "merged PR #9", url: "https://github.com/Sorakage033/SlimeVR-CheeseCake/pull/9" },
+    ],
+    note: "Felirami authored three merged documentation and fabrication-asset pull requests. Arca does not claim SlimeVR CheeseCake ownership or maintenance.",
+  },
+  {
     name: "OpenClaw",
     url: "https://github.com/openclaw/openclaw",
     logo: "/upstream/openclaw.svg",
