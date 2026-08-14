@@ -1,8 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T19:20:33Z",
+  "generatedAt": "2026-08-14T02:46:42Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:openclaw/openclaw:123321:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 123321,
+      "title": "fix(feishu): keep pre-tool text in streaming card replies",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/123321",
+      "occurredAt": "2026-08-13T21:22:38Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "71de73521bbee1cb5901cb39beb03781abec4fa2",
+        "mergeCommit": "7915f3d3f5d5517ec0ea014d9bab1f26b1f218bb"
+      }
+    },
     {
       "id": "github:pr:elizaOS/eliza:18505:closed",
       "type": "upstream_pr_state",
@@ -90,7 +108,7 @@
       "state": "open",
       "evidence": {
         "headSha": "05565da36288836ddc822e8eb377d6a9e3c198ff",
-        "mergeCommit": "d233c6c0bfb65735a37375930688a6c37f4cc1be"
+        "mergeCommit": "ca240f2e87f5f79dcb524147571e582be9e4f850"
       }
     },
     {
@@ -180,7 +198,7 @@
       "state": "open",
       "evidence": {
         "headSha": "703d457020e4a9efc09c1619f4d462ed51b8d634",
-        "mergeCommit": "fb1d3a4d9a7d2b517900887bf4444e340dd292e8"
+        "mergeCommit": "82d2bf258e1dfe5e8588c5afbb15be1384407eeb"
       }
     },
     {
@@ -216,7 +234,7 @@
       "state": "open",
       "evidence": {
         "headSha": "01e0083069ab24871e47d4ad121cf5cbe2b444e6",
-        "mergeCommit": "a2a8209178ec57079599cdeb9af9ed82c2deed83"
+        "mergeCommit": "78fe66b1bac6a155df88983eabd7581e9a99d5cb"
       }
     },
     {
@@ -798,7 +816,7 @@
       "state": "open",
       "evidence": {
         "headSha": "91d722e905d87d6b32ec3a6928fcbd11bf45fad4",
-        "mergeCommit": "015dd221c37b0779e5fba1501bf27d0b81538729"
+        "mergeCommit": "97655212fa33ea5aa944e29b35de57b03605a238"
       }
     },
     {
