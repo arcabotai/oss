@@ -1,8 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-14T13:43:01Z",
+  "generatedAt": "2026-08-14T19:14:36Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:openclaw/openclaw:123676:open",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 123676,
+      "title": "fix: spawned child prompt omits staged attachment file paths",
+      "summary": "Opened upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/123676",
+      "occurredAt": "2026-08-14T13:51:06Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "open",
+      "evidence": {
+        "headSha": "b74bf2e06ccb244e5bda26cf6d78c2b3b8c970fd",
+        "mergeCommit": "7ea6b797edc3682e8deb808866e0eb41def63b43"
+      }
+    },
     {
       "id": "github:pr:openclaw/openclaw:123321:open",
       "type": "upstream_pr_state",
@@ -108,7 +126,7 @@
       "state": "open",
       "evidence": {
         "headSha": "05565da36288836ddc822e8eb377d6a9e3c198ff",
-        "mergeCommit": "ca240f2e87f5f79dcb524147571e582be9e4f850"
+        "mergeCommit": "9a55c21fbd73d15f8d0f80f54fbe28c808261cbd"
       }
     },
     {
@@ -144,7 +162,7 @@
       "state": "open",
       "evidence": {
         "headSha": "2a603ba0572c55c6a0732e63f4f156b78b694f84",
-        "mergeCommit": "f14d45a83d759015ebb34df0523d9f39f78daa47"
+        "mergeCommit": "3154385d742f3c0dd5e7bfbbc06c7ddf5098abf5"
       }
     },
     {
@@ -198,7 +216,7 @@
       "state": "open",
       "evidence": {
         "headSha": "703d457020e4a9efc09c1619f4d462ed51b8d634",
-        "mergeCommit": "82d2bf258e1dfe5e8588c5afbb15be1384407eeb"
+        "mergeCommit": "22727a4b7c65a3b54aa92b5c256adc04832a785e"
       }
     },
     {
@@ -234,7 +252,7 @@
       "state": "open",
       "evidence": {
         "headSha": "01e0083069ab24871e47d4ad121cf5cbe2b444e6",
-        "mergeCommit": "78fe66b1bac6a155df88983eabd7581e9a99d5cb"
+        "mergeCommit": "6170880dad6ffc690b638830eabf43d6925ce15b"
       }
     },
     {
