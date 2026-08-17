@@ -1,8 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-17T01:55:57Z",
+  "generatedAt": "2026-08-17T07:16:43Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:openclaw/openclaw:105029:closed",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 105029,
+      "title": "fix(gateway): revoke attach grants on deletion",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/openclaw/openclaw/pull/105029",
+      "occurredAt": "2026-08-17T03:41:33Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "fb137a71e7288e7e166a717bfec8ae8f2fecf562",
+        "mergeCommit": null
+      }
+    },
     {
       "id": "github:pr:openclaw/openclaw:122457:merged",
       "type": "upstream_pr_state",
@@ -36,7 +54,7 @@
       "state": "open",
       "evidence": {
         "headSha": "d9460ac5db9b9d4a14800c2249be7fbdd7a9c582",
-        "mergeCommit": "ac0b0c3cc2f7f6eec270ce650b6f293ffadc42c6"
+        "mergeCommit": "2116dc6fab6c32a48df7185a34392f33d6fb24f7"
       }
     },
     {
@@ -90,7 +108,7 @@
       "state": "open",
       "evidence": {
         "headSha": "5294d7ba03ad6662551325724d0f5152701ba4eb",
-        "mergeCommit": "6bc8bd6be2016872ab8ccdb31035aae4dc24593d"
+        "mergeCommit": "1420803b88bd90d77fc5d8de611957ae5473b6bc"
       }
     },
     {
@@ -180,7 +198,7 @@
       "state": "open",
       "evidence": {
         "headSha": "2a603ba0572c55c6a0732e63f4f156b78b694f84",
-        "mergeCommit": "3a48cc2125028ea08ea9a99fcc7ff63ed195ab65"
+        "mergeCommit": "d63d8ab21cde6697645f326fd5fa7083108fa3b3"
       }
     },
     {
