@@ -1,8 +1,134 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-18T18:56:53Z",
+  "generatedAt": "2026-08-19T01:53:41Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:apache/kafka:23195:closed",
+      "type": "upstream_pr_state",
+      "project": "kafka",
+      "repository": "apache/kafka",
+      "number": 23195,
+      "title": "MINOR: Fix typos in Streams configuration docs",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/apache/kafka/pull/23195",
+      "occurredAt": "2026-08-18T22:38:49Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "0b056ce84263fd11a021cdf4bd3e3f59bbc9337b",
+        "mergeCommit": "fce7fc7960543166df4ed41ed9befc49942db34f"
+      }
+    },
+    {
+      "id": "github:pr:openssl/openssl:32422:closed",
+      "type": "upstream_pr_state",
+      "project": "openssl",
+      "repository": "openssl/openssl",
+      "number": 32422,
+      "title": "doc: add missing const to PEM write SYNOPSIS",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/openssl/openssl/pull/32422",
+      "occurredAt": "2026-08-18T22:38:48Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "7755cdd6accf1b87da37767f48a68e0eef23a699",
+        "mergeCommit": "d588906e86fce8246a9ba3d0b31bf80fba1dbaf7"
+      }
+    },
+    {
+      "id": "github:pr:triton-lang/triton:11362:closed",
+      "type": "upstream_pr_state",
+      "project": "triton",
+      "repository": "triton-lang/triton",
+      "number": 11362,
+      "title": "Validate Autotuner prune_configs_by[\"top_k\"] values",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/triton-lang/triton/pull/11362",
+      "occurredAt": "2026-08-18T22:38:46Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "3aa7ef7a5b6b8fc99d0dd1e4d976e5ae3056f294",
+        "mergeCommit": "5da1f4b1fd2e9f8c5f2680117375f68c78ff1f0f"
+      }
+    },
+    {
+      "id": "github:pr:huggingface/tokenizers:2342:closed",
+      "type": "upstream_pr_state",
+      "project": "tokenizers",
+      "repository": "huggingface/tokenizers",
+      "number": 2342,
+      "title": "docs: note that WordPiece training uses BPE",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/huggingface/tokenizers/pull/2342",
+      "occurredAt": "2026-08-18T22:38:44Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "56373a6611ac67577c0ac703d1b59ab2d8e1a787",
+        "mergeCommit": "743379642cb774aee1671877eaec6518bab1a9d9"
+      }
+    },
+    {
+      "id": "github:pr:django/django:21800:closed",
+      "type": "upstream_pr_state",
+      "project": "django",
+      "repository": "django/django",
+      "number": 21800,
+      "title": "Fixed #37044 -- Document that FileField.upload_to paths are not access-controlled.",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/django/django/pull/21800",
+      "occurredAt": "2026-08-18T22:38:42Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "19999fba051e104de4c4d3bcd4bb7a9a22d39782",
+        "mergeCommit": "125f37bcbdfdb5f6e1e6ecfbe04cbb8e4878a41e"
+      }
+    },
+    {
+      "id": "github:pr:openclaw/openclaw:111117:closed",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 111117,
+      "title": "fix(update): keep repair JSON output parseable",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/openclaw/openclaw/pull/111117",
+      "occurredAt": "2026-08-18T22:37:14Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "c6e26379d6a68403bbd98025be91284436549155",
+        "mergeCommit": null
+      }
+    },
+    {
+      "id": "github:pr:numpy/numpy:32337:closed",
+      "type": "upstream_pr_state",
+      "project": "numpy",
+      "repository": "numpy/numpy",
+      "number": 32337,
+      "title": "DOC: clarify nan_to_num copy= semantics",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/numpy/numpy/pull/32337",
+      "occurredAt": "2026-08-18T21:48:14Z",
+      "actor": "arcabotai",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "14e517e9e130a14b9093fd8fc331c9b2273bdae5",
+        "mergeCommit": "d981e4a670ae63abf6278203dfa8aa70602633b3"
+      }
+    },
     {
       "id": "github:pr:openclaw/openclaw:105029:closed",
       "type": "upstream_pr_state",
@@ -72,7 +198,7 @@
       "state": "open",
       "evidence": {
         "headSha": "71de73521bbee1cb5901cb39beb03781abec4fa2",
-        "mergeCommit": "320e90f0f63812b065b7874afdd4ffbec93ad812"
+        "mergeCommit": "c780e158e38cbd81dfb19822583cac10f2814826"
       }
     },
     {
@@ -108,7 +234,7 @@
       "state": "open",
       "evidence": {
         "headSha": "5294d7ba03ad6662551325724d0f5152701ba4eb",
-        "mergeCommit": "4e77f0a04ecd8011de664ea6d23f3a119cc2f2c6"
+        "mergeCommit": "aaa97a552d59172cc6005bb090ef1cb86502a11e"
       }
     },
     {
@@ -198,7 +324,7 @@
       "state": "open",
       "evidence": {
         "headSha": "2a603ba0572c55c6a0732e63f4f156b78b694f84",
-        "mergeCommit": "7e62f99df4ad1c1ba5b72b92af05a014078c9688"
+        "mergeCommit": "1c8d1858d05cc47342ce089e53a459d2ed4adf0d"
       }
     },
     {
@@ -870,7 +996,7 @@
       "state": "open",
       "evidence": {
         "headSha": "91d722e905d87d6b32ec3a6928fcbd11bf45fad4",
-        "mergeCommit": "843f7c61b58c62fadee87149c3b2e7e5a0524297"
+        "mergeCommit": "4bc88673d718267954a5909451bfd432fd5cee19"
       }
     },
     {
