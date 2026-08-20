@@ -1,8 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T07:06:20Z",
+  "generatedAt": "2026-08-20T13:11:49Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:openclaw/openclaw:123676:merged",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 123676,
+      "title": "fix: spawned child prompt omits staged attachment file paths",
+      "summary": "Merged upstream",
+      "url": "https://github.com/openclaw/openclaw/pull/123676",
+      "occurredAt": "2026-08-20T09:54:32Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "merged",
+      "evidence": {
+        "headSha": "a4040009698d300622536f59b9ba5de031b28c4f",
+        "mergeCommit": "975228306010f14b0517539f4fe818ac398d35ea"
+      }
+    },
     {
       "id": "github:pr:apache/kafka:23195:closed",
       "type": "upstream_pr_state",
@@ -180,7 +198,7 @@
       "state": "open",
       "evidence": {
         "headSha": "3aa7ef7a5b6b8fc99d0dd1e4d976e5ae3056f294",
-        "mergeCommit": "d240dc89001eb1ee6a60d727c8203991c83f7161"
+        "mergeCommit": "02645fa391f94a005e19059ee9ed13b148682434"
       }
     },
     {
@@ -198,7 +216,7 @@
       "state": "open",
       "evidence": {
         "headSha": "7755cdd6accf1b87da37767f48a68e0eef23a699",
-        "mergeCommit": "87e7016f5cecaabf3e9a151a420a8bc5c5dbe809"
+        "mergeCommit": "8677e549042c2b75c948a5d764d3614fc436c1c0"
       }
     },
     {
@@ -216,7 +234,7 @@
       "state": "open",
       "evidence": {
         "headSha": "0b056ce84263fd11a021cdf4bd3e3f59bbc9337b",
-        "mergeCommit": "bce2f7466949f72529f95e07e84a4628d90e7b4b"
+        "mergeCommit": "976f0bdf7b964b38dd0a6bd0806687e7caa26f67"
       }
     },
     {
@@ -378,7 +396,7 @@
       "state": "open",
       "evidence": {
         "headSha": "05565da36288836ddc822e8eb377d6a9e3c198ff",
-        "mergeCommit": "13e7f65311a21096ce8fe70980ee5d7c4188ac55"
+        "mergeCommit": "a2c13211803151a4239331a1554071ae16cfe12a"
       }
     },
     {
@@ -468,7 +486,7 @@
       "state": "open",
       "evidence": {
         "headSha": "703d457020e4a9efc09c1619f4d462ed51b8d634",
-        "mergeCommit": "bd2a70c8b3941fa07a1a3ca700f9834b7595e7ac"
+        "mergeCommit": "f966ea79b7ef9c0f88ff58e8c521280fa8b8d48f"
       }
     },
     {
