@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T13:11:49Z",
+  "generatedAt": "2026-08-20T18:59:44Z",
   "cadence": "every 6 hours",
   "events": [
     {
@@ -306,7 +306,7 @@
       "state": "open",
       "evidence": {
         "headSha": "71de73521bbee1cb5901cb39beb03781abec4fa2",
-        "mergeCommit": "0c1ac224155154be4eb0f104805276cfef44da7b"
+        "mergeCommit": "1954a29cb993c9d5e59ffabe354aea1709db17ba"
       }
     },
     {
@@ -342,7 +342,7 @@
       "state": "open",
       "evidence": {
         "headSha": "5294d7ba03ad6662551325724d0f5152701ba4eb",
-        "mergeCommit": "e90eec75f0cbc0421156d2d014d4fb7fb017621f"
+        "mergeCommit": "f2cec3accf51c9c6fa1e805e96ee2aa28408ff82"
       }
     },
     {
