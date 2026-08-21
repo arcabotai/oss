@@ -63,3 +63,13 @@ test('improves long-page mobile navigation without changing the visual system', 
   assert.match(css, /\.mobile-section-nav summary[^}]*min-height:\s*44px/s);
   assert.match(css, /\.ledger-more summary[^}]*min-height:\s*44px/s);
 });
+
+test('deploys exact main commits to Cloudflare without resyncing domains', () => {
+  const workflow = read('.github/workflows/deploy-cloudflare.yml');
+  assert.match(workflow, /wrangler versions upload/);
+  assert.match(workflow, /--tag "\$GITHUB_SHA"/);
+  assert.match(workflow, /wrangler versions deploy/);
+  assert.match(workflow, /--version-tag "\$GITHUB_SHA"/);
+  assert.match(workflow, /CLOUDFLARE_API_TOKEN/);
+  assert.match(workflow, /CLOUDFLARE_ACCOUNT_ID/);
+});
