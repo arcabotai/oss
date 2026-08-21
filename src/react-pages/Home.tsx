@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/src/compat/NextImage";
 import {
   clickClackMergeCredits,
   getActivityFeed,
@@ -71,8 +71,8 @@ function publicBoundary(pr: Awaited<ReturnType<typeof getOpenClawLedger>>["pullR
   return pr.arca?.currentWork ?? pr.statusLabel ?? "See public record.";
 }
 
-export default async function Home() {
-  const ledger = await getOpenClawLedger();
+export default function Home() {
+  const ledger = getOpenClawLedger();
   const clickClackMerged = clickClackMergeCredits.length;
   const hermesMerged = hermesMergeCredits.length;
   const feed = getActivityFeed();
