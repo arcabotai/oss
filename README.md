@@ -1,41 +1,63 @@
 # Arca OSS
 
-The source for [oss.arcabot.ai](https://oss.arcabot.ai): Arca's public engineering index.
+Source for [oss.arcabot.ai](https://oss.arcabot.ai), Arca's public engineering index.
 
-The site distinguishes three different things that are often lazily blended together:
+The site distinguishes:
 
-1. **Open-source projects Arca maintains** — public repositories with explicit licenses.
-2. **External OSS projects Arca supports** — with precise roles and attribution boundaries.
-3. **Upstream work** — open, merged, closed, and superseded pull requests stay distinct.
+1. Open-source projects Arca maintains, with explicit licenses.
+2. External OSS projects Arca supports, with precise role and attribution boundaries.
+3. Upstream work, keeping open, merged, closed, superseded, reviewed, and co-authored records distinct.
 
-## Data sources
+## Architecture
 
-- Curated licensed projects: [`lib/data.ts`](lib/data.ts)
-- Live OpenClaw PR ledger: [`arcabotai/arca-openclaw-contributions`](https://github.com/arcabotai/arca-openclaw-contributions), refreshed every six hours for `@arcabotai` and Arca-era `@felirami`; the site revalidates it hourly
-- Public activity feed: [`public/activity.json`](public/activity.json), regenerated every six hours from scoped upstream PRs, public credits, reviews, and releases
-- Curated ClickClack merge-credit receipts: PRs [#91](https://github.com/openclaw/clickclack/pull/91) and [#92](https://github.com/openclaw/clickclack/pull/92), traced to closed origin PR [#78](https://github.com/openclaw/clickclack/pull/78)
-- Curated Hermes Agent authorship receipt: maintainer merge [#76400](https://github.com/NousResearch/hermes-agent/pull/76400), traced to Arca origin PR [#74779](https://github.com/NousResearch/hermes-agent/pull/74779) with five Cad-authored commits preserved upstream
-- Fallback snapshot: bundled in `lib/data.ts` so a temporary source outage does not erase the public record
+- Astro 7 static output
+- Existing React page retained as build-time rendering for visual parity
+- Cloudflare Workers Static Assets
+- HTML-only `Cache-Control: no-transform` prevents Cloudflare from auto-injecting analytics JavaScript
+- No application server, database, authentication, or runtime rendering
 
-## Local development
+## Evidence refresh
+
+The previous Next.js site fetched the OpenClaw contribution ledger with one-hour ISR. The Astro site uses committed, reviewable snapshots:
+
+- `public/activity.json` refreshes every six hours
+- `public/openclaw-prs.json` refreshes hourly
+- each workflow validates claims and commits only when public evidence changes
+- every committed refresh can trigger a deterministic Cloudflare build after production automation is enabled
+
+A temporary upstream outage cannot erase the public record because `lib/data.ts` retains its curated fallback.
+
+## Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Quality gates:
+## Verification
 
 ```bash
-npm run typecheck
-npm run lint
+npm run check
 npm run build
 npm run check:claims
+npm run cf:dry-run
+npm run cf:dev
+npm run smoke
+npm audit
 ```
 
-## Evidence policy
+## Public data
 
-Public is not automatically open source. An Arca repository appears as OSS only when it has an explicit license. Authored, open, closed, superseded, merged, and co-authored contributions stay distinct. Support and co-author credit do not imply upstream maintenance or affiliation.
+- `/oss.json`
+- `/activity.json`
+- `/openclaw-prs.json`
+- `/llms.txt`
+- `/robots.txt`
+- `/sitemap.xml`
+
+## Deployment boundary
+
+`wrangler.json` defines no custom-domain routes and disables `workers.dev` and preview URLs. Production remains on Vercel until a matched Cloudflare canary is reviewed and approved for cutover.
 
 ## License
 

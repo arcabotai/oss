@@ -1,4 +1,5 @@
 import activityJson from "@/public/activity.json";
+import openClawLedgerJson from "@/public/openclaw-prs.json";
 
 export type ActivityEventType =
   | "upstream_pr_state"
@@ -522,19 +523,10 @@ const fallbackLedger: OpenClawLedger = {
   ],
 };
 
-const LEDGER_URL =
-  "https://raw.githubusercontent.com/arcabotai/arca-openclaw-contributions/main/data/openclaw-prs.json";
-
-export async function getOpenClawLedger(): Promise<OpenClawLedger> {
-  try {
-    const response = await fetch(LEDGER_URL, { next: { revalidate: 3600 } });
-    if (!response.ok) return fallbackLedger;
-    const ledger = (await response.json()) as OpenClawLedger;
-    if (!Array.isArray(ledger.pullRequests)) return fallbackLedger;
-    return ledger;
-  } catch {
-    return fallbackLedger;
-  }
+export function getOpenClawLedger(): OpenClawLedger {
+  const ledger = openClawLedgerJson as OpenClawLedger;
+  if (!Array.isArray(ledger.pullRequests)) return fallbackLedger;
+  return ledger;
 }
 
 const emptyActivityFeed: ActivityFeed = {

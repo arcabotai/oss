@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/src/compat/NextImage";
 import {
   clickClackMergeCredits,
   getActivityFeed,
@@ -9,6 +9,7 @@ import {
 } from "@/lib/data";
 
 const MOVEMENT_LIMIT = 8;
+const LEDGER_INITIAL_LIMIT = 6;
 
 const KIND_LABELS: Record<string, string> = {
   upstream_pr_state: "pull request",
@@ -71,8 +72,22 @@ function publicBoundary(pr: Awaited<ReturnType<typeof getOpenClawLedger>>["pullR
   return pr.arca?.currentWork ?? pr.statusLabel ?? "See public record.";
 }
 
-export default async function Home() {
-  const ledger = await getOpenClawLedger();
+function PullRequestRow({ pr }: { pr: Awaited<ReturnType<typeof getOpenClawLedger>>["pullRequests"][number] }) {
+  return (
+    <a className="pr-row" href={pr.url}>
+      <span className="pr-title">
+        <span className="pr-kicker"><strong>#{pr.number}</strong><small>@{pr.author ?? "arcabotai"}</small></span>
+        {pr.title}
+      </span>
+      <span><StateMark state={pr.state} />{pr.ratingLabel && <small>{pr.ratingLabel}</small>}</span>
+      <span className="pr-work">{publicBoundary(pr)}</span>
+      <code>{pr.headSha.slice(0, 12)}</code>
+    </a>
+  );
+}
+
+export default function Home() {
+  const ledger = getOpenClawLedger();
   const clickClackMerged = clickClackMergeCredits.length;
   const hermesMerged = hermesMergeCredits.length;
   const feed = getActivityFeed();
@@ -95,6 +110,8 @@ export default async function Home() {
     ? new Date(latestReceipt.at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
     : null;
   const movementEvents = feed.events.slice(0, MOVEMENT_LIMIT);
+  const primaryPullRequests = ledger.pullRequests.slice(0, LEDGER_INITIAL_LIMIT);
+  const remainingPullRequests = ledger.pullRequests.slice(LEDGER_INITIAL_LIMIT);
   const feedGenerated =
     feed.generatedAt && !Number.isNaN(Date.parse(feed.generatedAt))
       ? new Date(feed.generatedAt).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" })
@@ -115,6 +132,16 @@ export default async function Home() {
           <a href="#ledger">Ledger</a>
           <a href="#method">Method</a>
         </nav>
+        <details className="mobile-section-nav">
+          <summary>Sections</summary>
+          <div>
+            <a href="#movement">Movement</a>
+            <a href="#maintained">Maintained</a>
+            <a href="#support">Supported</a>
+            <a href="#ledger">Ledger</a>
+            <a href="#method">Method</a>
+          </div>
+        </details>
         <a className="header-link" href="https://github.com/arcabotai">GitHub <Arrow /></a>
       </header>
 
@@ -210,6 +237,7 @@ export default async function Home() {
           Newest {movementEvents.length} of {feed.events.length} public events. The machine-readable feed at{" "}
           <a href="/activity.json">/activity.json</a> carries the full record.
         </p>
+        <a className="section-return" href="#top">Back to top ↑</a>
       </section>
 
       <section className="section" id="maintained" aria-labelledby="maintained-title">
@@ -237,6 +265,7 @@ export default async function Home() {
             </a>
           ))}
         </div>
+        <a className="section-return" href="#top">Back to top ↑</a>
       </section>
 
       <section className="section section-band support-section" id="support" aria-labelledby="support-title">
@@ -273,6 +302,7 @@ export default async function Home() {
             <p>Every role on this page links to a public record. We keep authored work, reviews, merged code, and maintenance responsibilities distinct without implying affiliation with the projects we support.</p>
           </article>
         </div>
+        <a className="section-return" href="#top">Back to top ↑</a>
       </section>
 
       <section className="section ledger-section" id="ledger" aria-labelledby="ledger-title">
@@ -291,19 +321,18 @@ export default async function Home() {
           <div className="pr-row pr-head" aria-hidden="true">
             <span>PR</span><span>State</span><span>Evidence / current boundary</span><span>Head</span>
           </div>
-          {ledger.pullRequests.map((pr) => (
-            <a className="pr-row" href={pr.url} key={pr.number}>
-              <span className="pr-title">
-                <span className="pr-kicker"><strong>#{pr.number}</strong><small>@{pr.author ?? "arcabotai"}</small></span>
-                {pr.title}
-              </span>
-              <span><StateMark state={pr.state} />{pr.ratingLabel && <small>{pr.ratingLabel}</small>}</span>
-              <span className="pr-work">{publicBoundary(pr)}</span>
-              <code>{pr.headSha.slice(0, 12)}</code>
-            </a>
-          ))}
+          {primaryPullRequests.map((pr) => <PullRequestRow pr={pr} key={pr.number} />)}
         </div>
+        {remainingPullRequests.length > 0 && (
+          <details className="ledger-more">
+            <summary>Show remaining {remainingPullRequests.length} pull requests</summary>
+            <div className="pr-table">
+              {remainingPullRequests.map((pr) => <PullRequestRow pr={pr} key={pr.number} />)}
+            </div>
+          </details>
+        )}
         <p className="ledger-footnote">An authored PR is work. A merged PR is upstream code. A closed PR stays in the record instead of being quietly airbrushed.</p>
+        <a className="section-return" href="#top">Back to top ↑</a>
       </section>
 
       <section className="section section-band method-section" id="method" aria-labelledby="method-title">
