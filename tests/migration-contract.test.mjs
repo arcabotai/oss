@@ -52,3 +52,14 @@ test('prevents Cloudflare beacon injection without weakening CSP', async () => {
   assert.equal(response.status, 200);
   assert.match(response.headers.get('cache-control') || '', /no-transform/);
 });
+
+test('improves long-page mobile navigation without changing the visual system', () => {
+  const home = read('src/react-pages/Home.tsx');
+  const css = read('src/styles/global.css');
+  assert.match(home, /<details className="mobile-section-nav"/);
+  assert.match(home, /ledger\.pullRequests\.slice\(0, LEDGER_INITIAL_LIMIT\)/);
+  assert.match(home, /<details className="ledger-more"/);
+  assert.match(home, /className="section-return"/);
+  assert.match(css, /\.mobile-section-nav summary[^}]*min-height:\s*44px/s);
+  assert.match(css, /\.ledger-more summary[^}]*min-height:\s*44px/s);
+});
