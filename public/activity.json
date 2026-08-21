@@ -1,8 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T13:11:11Z",
+  "generatedAt": "2026-08-21T18:56:29Z",
   "cadence": "every 6 hours",
   "events": [
+    {
+      "id": "github:pr:openclaw/openclaw:122804:closed",
+      "type": "upstream_pr_state",
+      "project": "openclaw",
+      "repository": "openclaw/openclaw",
+      "number": 122804,
+      "title": "fix(plugins): honor enabledByDefault in config validation warnings",
+      "summary": "Closed upstream without merge",
+      "url": "https://github.com/openclaw/openclaw/pull/122804",
+      "occurredAt": "2026-08-21T14:15:46Z",
+      "actor": "felirami",
+      "role": "author",
+      "state": "closed",
+      "evidence": {
+        "headSha": "2a603ba0572c55c6a0732e63f4f156b78b694f84",
+        "mergeCommit": null
+      }
+    },
     {
       "id": "github:pr:openclaw/openclaw:123676:merged",
       "type": "upstream_pr_state",
@@ -180,7 +198,7 @@
       "state": "open",
       "evidence": {
         "headSha": "19999fba051e104de4c4d3bcd4bb7a9a22d39782",
-        "mergeCommit": "080a7245fb64320ace1ccfe9d26bef0391044877"
+        "mergeCommit": "b6e865a34a118273cbf4edd6ad08d579ad15ecde"
       }
     },
     {
@@ -198,7 +216,7 @@
       "state": "open",
       "evidence": {
         "headSha": "3aa7ef7a5b6b8fc99d0dd1e4d976e5ae3056f294",
-        "mergeCommit": "e1d4ff207d3f28806b609569a0e083cb8292b427"
+        "mergeCommit": "5ce7c0b8dc4ae2ef78e8c2bac49a0f1a24d7ca47"
       }
     },
     {
@@ -216,7 +234,7 @@
       "state": "open",
       "evidence": {
         "headSha": "7755cdd6accf1b87da37767f48a68e0eef23a699",
-        "mergeCommit": "8677e549042c2b75c948a5d764d3614fc436c1c0"
+        "mergeCommit": "206b5a8bbb1e1c736ea7005ab5375b326e78aa4c"
       }
     },
     {
@@ -234,7 +252,7 @@
       "state": "open",
       "evidence": {
         "headSha": "0b056ce84263fd11a021cdf4bd3e3f59bbc9337b",
-        "mergeCommit": "de0a861f20b0e69dc0f265865297d89efcfb57eb"
+        "mergeCommit": "e23f3187298ce46447c137bcceab0091c577b426"
       }
     },
     {
@@ -306,7 +324,7 @@
       "state": "open",
       "evidence": {
         "headSha": "71de73521bbee1cb5901cb39beb03781abec4fa2",
-        "mergeCommit": "0f8782fc429c42147277a8b8c9fbc2b5029deda2"
+        "mergeCommit": "0425b4ee23d8d0050ff3678d785581de015b358f"
       }
     },
     {
@@ -342,7 +360,7 @@
       "state": "open",
       "evidence": {
         "headSha": "5294d7ba03ad6662551325724d0f5152701ba4eb",
-        "mergeCommit": "d9d30ec555d7ba215074d3e1033da9856b3073c1"
+        "mergeCommit": "9c646ae81c75141235e944c70611e0c5c88cc151"
       }
     },
     {
@@ -396,7 +414,7 @@
       "state": "open",
       "evidence": {
         "headSha": "05565da36288836ddc822e8eb377d6a9e3c198ff",
-        "mergeCommit": "d6a636eae3e0c4e92f8e5c49df0a681f8680fdc8"
+        "mergeCommit": "3ef51367dd58cec6b7509c03c7b650d154f232b8"
       }
     },
     {
@@ -486,7 +504,7 @@
       "state": "open",
       "evidence": {
         "headSha": "703d457020e4a9efc09c1619f4d462ed51b8d634",
-        "mergeCommit": "91bc7ba6422d77ca5c33cd97cbcc6e41482b49a7"
+        "mergeCommit": "6f749d7f6e026a5126ddc972af5eee9121faae1b"
       }
     },
     {
