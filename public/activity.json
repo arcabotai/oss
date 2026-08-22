@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-22T06:59:53Z",
+  "generatedAt": "2026-08-22T13:01:21Z",
   "cadence": "every 6 hours",
   "events": [
     {
@@ -189,7 +189,7 @@
       "project": "django",
       "repository": "django/django",
       "number": 21800,
-      "title": "Fixed #37044 -- Document that FileField.upload_to paths are not access-controlled.",
+      "title": "Fixed #37044 -- Documented FileField.upload_to access control.",
       "summary": "Opened upstream",
       "url": "https://github.com/django/django/pull/21800",
       "occurredAt": "2026-08-18T21:27:16Z",
@@ -197,8 +197,8 @@
       "role": "author",
       "state": "open",
       "evidence": {
-        "headSha": "19999fba051e104de4c4d3bcd4bb7a9a22d39782",
-        "mergeCommit": "b6e865a34a118273cbf4edd6ad08d579ad15ecde"
+        "headSha": "078d6874b23e8224827725a675a40507c874e1eb",
+        "mergeCommit": "a5de1362bb3736cc4aa6a476377be6e2fdbf1141"
       }
     },
     {
@@ -324,7 +324,7 @@
       "state": "open",
       "evidence": {
         "headSha": "71de73521bbee1cb5901cb39beb03781abec4fa2",
-        "mergeCommit": "0425b4ee23d8d0050ff3678d785581de015b358f"
+        "mergeCommit": "20db3e9c95e8bbcf3ac0415a6576007de9b48bf6"
       }
     },
     {
@@ -360,7 +360,7 @@
       "state": "open",
       "evidence": {
         "headSha": "5294d7ba03ad6662551325724d0f5152701ba4eb",
-        "mergeCommit": "9c646ae81c75141235e944c70611e0c5c88cc151"
+        "mergeCommit": "4703cc0d5ece858eb1314c23112fc2b8e8cae0fc"
       }
     },
     {
@@ -414,7 +414,7 @@
       "state": "open",
       "evidence": {
         "headSha": "05565da36288836ddc822e8eb377d6a9e3c198ff",
-        "mergeCommit": "3ef51367dd58cec6b7509c03c7b650d154f232b8"
+        "mergeCommit": "f88d161c8fcfc283d0e58dc8f36a90005e9d7ff6"
       }
     },
     {
@@ -504,7 +504,7 @@
       "state": "open",
       "evidence": {
         "headSha": "703d457020e4a9efc09c1619f4d462ed51b8d634",
-        "mergeCommit": "6f749d7f6e026a5126ddc972af5eee9121faae1b"
+        "mergeCommit": "81bde34980660e0001b290660b21fffca1fec679"
       }
     },
     {
